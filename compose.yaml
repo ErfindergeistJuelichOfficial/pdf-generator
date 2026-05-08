@@ -1,0 +1,8 @@
+services:
+  pdf-generator:
+    build:
+      context: .
+      dockerfile: Containerfile
+    env_file: .env
+    volumes:
+      - ./output:/app/output

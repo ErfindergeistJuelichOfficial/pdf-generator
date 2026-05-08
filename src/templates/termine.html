@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<style>
+  @font-face {
+    font-family: 'Caveat';
+    src: url('Caveat-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @page {
+    size: A4 {{ orientation }};
+    margin: 0;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html, body {
+    width: 100%;
+    height: 100%;
+  }
+
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 9pt;
+    color: #222;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  /* ── Main content area ── */
+  .content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 10mm 12mm 5mm;
+  }
+
+  /* ── Header ── */
+  .header {
+    display: flex;
+    align-items: center;
+    gap: 6mm;
+    padding-bottom: 4mm;
+  }
+
+  .logo {
+    height: 14mm;
+    width: auto;
+  }
+
+  .header-text {
+    flex: 1;
+  }
+
+  .title {
+    font-family: 'Caveat', cursive;
+    font-size: 33pt;
+    color: #159989;
+    line-height: 1;
+  }
+
+  .header-qr {
+    height: 16mm;
+    width: auto;
+    flex-shrink: 0;
+  }
+
+  /* ── Gold divider ── */
+  .divider {
+    height: 2px;
+    background: #F9B338;
+    margin-bottom: 5mm;
+  }
+
+  /* ── Table ── */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 8.5pt;
+  }
+
+  tbody tr:nth-child(even) {
+    background: rgba(21, 153, 137, 0.07);
+  }
+
+  tbody td {
+    padding: 2.2mm 2mm;
+    vertical-align: top;
+    line-height: 1.35;
+  }
+
+  td.datum-zeit {
+    white-space: nowrap;
+    width: 28mm;
+    vertical-align: top;
+  }
+
+  .datum {
+    font-weight: 600;
+    color: #333;
+  }
+
+  .zeit {
+    color: #666;
+    font-size: 8pt;
+    margin-top: 0.8mm;
+  }
+
+  td.titel {
+    font-weight: 600;
+    font-size: 10pt;
+    color: #111;
+  }
+
+  .beschreibung {
+    color: #555;
+    font-size: 8pt;
+    font-style: italic;
+    margin-top: 1mm;
+    font-weight: normal;
+  }
+
+  td.ort {
+    color: #444;
+    width: 36mm;
+  }
+
+  /* ── Info block ── */
+  .info-block {
+    margin-top: 6mm;
+    border-left: 3px solid #159989;
+    padding: 3mm 4mm;
+    background: #f7fdfc;
+  }
+
+  .info-title {
+    font-family: 'Caveat', cursive;
+    font-size: 13pt;
+    color: #159989;
+    margin-bottom: 1.5mm;
+  }
+
+  .info-text {
+    font-size: 8pt;
+    color: #444;
+    line-height: 1.5;
+  }
+
+  /* ── Spacer pushes footer to bottom ── */
+  .spacer {
+    flex: 1;
+  }
+
+  /* ── Footer band — außerhalb des gepaddeten Content, randlos ── */
+  .footer {
+    background: #159989;
+    padding: 4mm 12mm;
+    display: flex;
+    align-items: center;
+  }
+
+  .footer-text {
+    flex: 1;
+    color: rgba(255,255,255,0.9);
+    font-size: 10pt;
+    line-height: 1.5;
+  }
+
+  .footer-text a, .footer-text span {
+    color: rgba(255,255,255,0.9);
+  }
+
+  .footer-sep {
+    color: rgba(255,255,255,0.4);
+    margin: 0 1.5mm;
+  }
+
+</style>
+</head>
+<body>
+
+  <div class="content">
+
+    <div class="header">
+      <img class="logo" src="logo-weiss.svg" alt="Erfindergeist Logo">
+      <div class="header-text">
+        <div class="title">Termine</div>
+      </div>
+      <img class="header-qr" src="QRlinktree.png" alt="QR-Code Linktree">
+    </div>
+
+    <div class="divider"></div>
+
+    <table>
+      <tbody>
+        {% for t in termine %}
+        <tr>
+          <td class="datum-zeit">
+            <div class="datum">{{ t.datum }}</div>
+            <div class="zeit">{{ t.zeit }}</div>
+          </td>
+          <td class="titel">
+            {{ t.titel }}
+            {% if t.beschreibung %}
+            <div class="beschreibung">{{ t.beschreibung }}</div>
+            {% endif %}
+          </td>
+          <td class="ort">{{ t.ort }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <div class="spacer"></div>
+
+    <div class="info-block">
+      <div class="info-title">Wer sind wir?</div>
+      <div class="info-text">
+        Wir sind eine offene Werkstatt in Jülich. Ein Ort zum Tüfteln, Bauen, Reparieren
+        und Voneinander-Lernen. Einfach vorbeikommen, mitmachen, Werkzeug nutzen.<br>
+        Alle Termine &amp; mehr Infos auf <strong>erfindergeist.org</strong> —
+        Änderungen vorbehalten.
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <div class="footer-text">
+      <span>kontakt@erfindergeist.org</span>
+      <span class="footer-sep">|</span>
+      <span>erfindergeist.org</span>
+      <span class="footer-sep">|</span>
+      <span>Stand: {{ erstellt }}</span>
+    </div>
+  </div>
+
+</body>
+</html>

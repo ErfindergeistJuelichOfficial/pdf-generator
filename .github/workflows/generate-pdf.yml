@@ -1,0 +1,55 @@
+name: Termine PDF generieren
+
+on:
+  schedule:
+    - cron: "0 6 1 * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Release-Datum setzen
+        run: |
+          echo "RELEASE_TAG=termine-$(date +%Y-%m)" >> $GITHUB_ENV
+          echo "RELEASE_TITLE=Termine $(date +%m/%Y)" >> $GITHUB_ENV
+          echo "RELEASE_DATE=$(date +%d.%m.%Y)" >> $GITHUB_ENV
+
+      - name: WeasyPrint System-Abhängigkeiten
+        run: sudo apt-get install -y libpango-1.0-0 libpangoft2-1.0-0 libharfbuzz0b
+
+      - name: Python-Pakete installieren
+        run: pip install -r requirements.txt
+
+      - name: PDFs generieren
+        run: python src/main.py
+        env:
+          TERMINE_JSON_URL: https://erfindergeist.org/wp-json/erfindergeist/v2/events
+
+      - name: GitHub Release erstellen und PDFs veröffentlichen
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ env.RELEASE_TAG }}
+          name: ${{ env.RELEASE_TITLE }}
+          make_latest: true
+          body: |
+            Automatisch generierte Terminübersichten für den **Erfindergeist Jülich e.V.**
+
+            Stand: ${{ env.RELEASE_DATE }}
+
+            | Datei | Format | Inhalt |
+            |---|---|---|
+            | `terminuebersicht_hoch_kurz.pdf` | A4 Hochformat | nächste 7 Termine |
+            | `terminuebersicht_quer_kurz.pdf` | A4 Querformat | nächste 7 Termine |
+            | `terminuebersicht_hoch_alle.pdf` | A4 Hochformat | alle Termine |
+            | `terminuebersicht_quer_alle.pdf` | A4 Querformat | alle Termine |
+          files: output/*.pdf
