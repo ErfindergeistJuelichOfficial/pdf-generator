@@ -10,6 +10,13 @@
     font-style: normal;
   }
 
+  @font-face {
+    font-family: 'Caveat';
+    src: url('Caveat-Bold.ttf');
+    font-weight: bold;
+    font-style: normal;
+  }
+
   @page {
     size: A4 {{ orientation }};
     margin: 0;
@@ -62,9 +69,9 @@
 
   .title {
     font-family: 'Caveat', cursive;
-    font-size: 33pt;
+    font-size: 58pt;
     color: #159989;
-    line-height: 1;
+    line-height: 22mm;
   }
 
 
@@ -117,7 +124,8 @@
 
   .titel-text {
     font-family: 'Caveat', cursive;
-    font-size: 11pt;
+    font-weight: bold;
+    font-size: 12pt;
   }
 
   .beschreibung {
@@ -182,18 +190,10 @@
 
   .footer-text {
     flex: 1;
+    display: flex;
+    justify-content: space-between;
     color: rgba(255,255,255,0.9);
     font-size: 10pt;
-    line-height: 1.5;
-  }
-
-  .footer-text a, .footer-text span {
-    color: rgba(255,255,255,0.9);
-  }
-
-  .footer-sep {
-    color: rgba(255,255,255,0.4);
-    margin: 0 1.5mm;
   }
 
 </style>
@@ -203,10 +203,10 @@
   <div class="content">
 
     <div class="header">
-      <img class="logo" src="logo-weiss.svg" alt="Erfindergeist Logo">
       <div class="header-text">
         <div class="title">Termine</div>
       </div>
+      <img class="logo" src="logo-weiss.svg" alt="Erfindergeist Logo">
     </div>
 
     <div class="divider"></div>
@@ -251,9 +251,7 @@
   <div class="footer">
     <div class="footer-text">
       <span>kontakt@erfindergeist.org</span>
-      <span class="footer-sep">|</span>
       <span>erfindergeist.org</span>
-      <span class="footer-sep">|</span>
       <span>Stand: {{ erstellt }}</span>
     </div>
   </div>
