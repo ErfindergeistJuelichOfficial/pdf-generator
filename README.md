@@ -17,8 +17,8 @@ Die fertigen PDFs liegen danach im Ordner `output/`:
 
 | Datei | Format | Inhalt |
 |---|---|---|
-| `terminuebersicht_hoch_kurz.pdf` | A4 Hochformat | nächste 7 Termine |
-| `terminuebersicht_quer_kurz.pdf` | A4 Querformat | nächste 7 Termine |
+| `terminuebersicht_hoch_kurz.pdf` | A4 Hochformat | nächste 9 Termine |
+| `terminuebersicht_quer_kurz.pdf` | A4 Querformat | nächste 6 Termine |
 | `terminuebersicht_hoch_alle.pdf` | A4 Hochformat | alle Termine |
 | `terminuebersicht_quer_alle.pdf` | A4 Querformat | alle Termine |
 
