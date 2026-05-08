@@ -28,26 +28,15 @@
     padding: 0;
   }
 
-  html, body {
-    width: 100%;
-    height: 100%;
-  }
-
   body {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 9pt;
     color: #222;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
   }
 
   /* ── Main content area ── */
   .content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    padding: 10mm 12mm 5mm;
+    padding: 10mm 12mm 55mm;
   }
 
   /* ── Header ── */
@@ -143,7 +132,7 @@
 
   /* ── Info block ── */
   .info-block {
-    margin-top: 6mm;
+    margin: 0 12mm 4mm;
     border-left: 3px solid #159989;
     padding: 3mm 4mm;
     background: #f7fdfc;
@@ -175,12 +164,14 @@
     flex-shrink: 0;
   }
 
-  /* ── Spacer pushes footer to bottom ── */
-  .spacer {
-    flex: 1;
+  /* ── Bottom section — fixed am unteren Seitenrand ── */
+  .bottom {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
   }
 
-  /* ── Footer band — außerhalb des gepaddeten Content, randlos ── */
   .footer {
     background: #159989;
     padding: 4mm 12mm 20mm;
@@ -211,9 +202,11 @@
 
     <div class="divider"></div>
 
+    {% for chunk in chunks %}
+    {% if not loop.first %}<div style="page-break-before: always;"></div>{% endif %}
     <table>
       <tbody>
-        {% for t in termine %}
+        {% for t in chunk %}
         <tr>
           <td class="datum-zeit">
             <div class="datum">{{ t.datum }}</div>
@@ -230,9 +223,11 @@
         {% endfor %}
       </tbody>
     </table>
+    {% endfor %}
 
-    <div class="spacer"></div>
+  </div>
 
+  <div class="bottom">
     <div class="info-block">
       <div class="info-body">
         <div class="info-title">Wer sind wir?</div>
@@ -246,13 +241,12 @@
       <img class="info-qr" src="QRlinktree.png" alt="QR-Code Linktree">
     </div>
 
-  </div>
-
-  <div class="footer">
-    <div class="footer-text">
-      <span>kontakt@erfindergeist.org</span>
-      <span>erfindergeist.org</span>
-      <span>Stand: {{ erstellt }}</span>
+    <div class="footer">
+      <div class="footer-text">
+        <span>kontakt@erfindergeist.org</span>
+        <span>erfindergeist.org</span>
+        <span>Stand: {{ erstellt }}</span>
+      </div>
     </div>
   </div>
 
