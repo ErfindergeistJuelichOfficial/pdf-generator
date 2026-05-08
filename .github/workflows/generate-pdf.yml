@@ -20,8 +20,8 @@ jobs:
 
       - name: Release-Datum setzen
         run: |
-          echo "RELEASE_TAG=termine-$(date +%Y-%m)" >> $GITHUB_ENV
-          echo "RELEASE_TITLE=Termine $(date +%m/%Y)" >> $GITHUB_ENV
+          echo "RELEASE_TAG=termine-v${{ github.run_number }}" >> $GITHUB_ENV
+          echo "RELEASE_TITLE=Termine $(date +%m/%Y) v${{ github.run_number }}" >> $GITHUB_ENV
           echo "RELEASE_DATE=$(date +%d.%m.%Y)" >> $GITHUB_ENV
 
       - name: WeasyPrint System-Abhängigkeiten
