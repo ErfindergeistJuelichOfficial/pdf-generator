@@ -21,6 +21,8 @@ Die fertigen PDFs liegen danach im Ordner `output/`:
 | `terminuebersicht_quer_kurz.pdf` | A4 Querformat | nächste 6 Termine |
 | `terminuebersicht_hoch_alle.pdf` | A4 Hochformat | alle Termine |
 | `terminuebersicht_quer_alle.pdf` | A4 Querformat | alle Termine |
+| `repaircafe_hoch.pdf` | A4 Hochformat | Repair Café — alle Termine |
+| `repaircafe_quer.pdf` | A4 Querformat | Repair Café — alle Termine |
 
 ## Konfiguration
 
@@ -29,8 +31,8 @@ Für eine abweichende URL kann eine `.env`-Datei angelegt werden (siehe `.env.ex
 
 ## Automatische Generierung
 
-Via GitHub Actions wird am **1. jedes Monats um 06:00 Uhr** automatisch ein neuer
-[Release](../../releases) mit allen vier PDFs erstellt.
+Via GitHub Actions wird **jeden Montag um 03:00 Uhr** automatisch ein neuer
+[Release](../../releases) mit allen sechs PDFs erstellt.
 Der Workflow lässt sich auch manuell unter **Actions → Termine PDF generieren → Run workflow** starten.
 
 ---

@@ -21,7 +21,7 @@ jobs:
       - name: Release-Datum setzen
         run: |
           echo "RELEASE_TAG=KW$(date +%V)-$(date +%m)-$(date +%Y)-termine-v${{ github.run_number }}" >> $GITHUB_ENV
-          echo "RELEASE_TITLE=Termine $(date +%m/%Y) v${{ github.run_number }}" >> $GITHUB_ENV
+          echo "RELEASE_TITLE=KW$(date +%V) $(date +%m/%Y) Termine v${{ github.run_number }}" >> $GITHUB_ENV
           echo "RELEASE_DATE=$(date +%d.%m.%Y)" >> $GITHUB_ENV
 
       - name: WeasyPrint System-Abhängigkeiten
@@ -52,4 +52,6 @@ jobs:
             | `terminuebersicht_quer_kurz.pdf` | A4 Querformat | nächste 6 Termine |
             | `terminuebersicht_hoch_alle.pdf` | A4 Hochformat | alle Termine |
             | `terminuebersicht_quer_alle.pdf` | A4 Querformat | alle Termine |
+            | `repaircafe_hoch.pdf` | A4 Hochformat | Repair Café — alle Termine |
+            | `repaircafe_quer.pdf` | A4 Querformat | Repair Café — alle Termine |
           files: output/*.pdf
