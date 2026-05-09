@@ -8,14 +8,16 @@ Niemals `pip install` oder `python` direkt auf dem Host. Alles via Container:
 podman compose up --build
 ```
 
-## Die 4 Ausgaben und ihre Limits
+## Die 6 Ausgaben und ihre Limits
 
-| Datei | Format | Termine pro Seite |
-|---|---|---|
-| `terminuebersicht_hoch_kurz.pdf` | A4 Hochformat | 9 (nur 1 Seite) |
-| `terminuebersicht_quer_kurz.pdf` | A4 Querformat | 6 (nur 1 Seite) |
-| `terminuebersicht_hoch_alle.pdf` | A4 Hochformat | 9 pro Seite, alle Termine |
-| `terminuebersicht_quer_alle.pdf` | A4 Querformat | 6 pro Seite, alle Termine |
+| Datei | Template | Format | Termine pro Seite |
+| --- | --- | --- | --- |
+| `terminuebersicht_hoch_kurz.pdf` | termine.html | A4 Hochformat | 9 (nur 1 Seite) |
+| `terminuebersicht_quer_kurz.pdf` | termine.html | A4 Querformat | 6 (nur 1 Seite) |
+| `terminuebersicht_hoch_alle.pdf` | termine.html | A4 Hochformat | 9 pro Seite, alle Termine |
+| `terminuebersicht_quer_alle.pdf` | termine.html | A4 Querformat | 6 pro Seite, alle Termine |
+| `repaircafe_hoch.pdf` | repaircafe.html | A4 Hochformat | 15 pro Seite, nur `#repaircafe`-Termine |
+| `repaircafe_quer.pdf` | repaircafe.html | A4 Querformat | 10 pro Seite, nur `#repaircafe`-Termine |
 
 Werden die Limits geändert, müssen **README.md** und **`.github/workflows/generate-pdf.yml`** (Release-Body-Tabelle) synchron angepasst werden.
 

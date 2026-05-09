@@ -2,7 +2,7 @@ name: Termine PDF generieren
 
 on:
   schedule:
-    - cron: "0 6 1 * *"
+    - cron: "0 3 * * 1"
   workflow_dispatch:
 
 permissions:
@@ -20,7 +20,7 @@ jobs:
 
       - name: Release-Datum setzen
         run: |
-          echo "RELEASE_TAG=termine-v${{ github.run_number }}" >> $GITHUB_ENV
+          echo "RELEASE_TAG=KW$(date +%V)-$(date +%m)-$(date +%Y)-termine-v${{ github.run_number }}" >> $GITHUB_ENV
           echo "RELEASE_TITLE=Termine $(date +%m/%Y) v${{ github.run_number }}" >> $GITHUB_ENV
           echo "RELEASE_DATE=$(date +%d.%m.%Y)" >> $GITHUB_ENV
 

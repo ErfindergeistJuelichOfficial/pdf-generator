@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<style>
+  @font-face {
+    font-family: 'Caveat';
+    src: url('Caveat-Bold.ttf');
+    font-weight: bold;
+  }
+
+  @page {
+    size: A4 {{ orientation }};
+    margin: 0;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #222;
+    background: #fff;
+  }
+
+  /* ── Oberer Akzentstreifen ── */
+  .top-stripe {
+    height: {% if orientation == 'portrait' %}5mm{% else %}4mm{% endif %};
+    background: #e87722;
+  }
+
+  /* ── Header: Logo + Titel ── */
+  .header {
+    background: #fff;
+    padding: {% if orientation == 'portrait' %}6mm 14mm 4mm{% else %}4mm 16mm 3mm{% endif %};
+    display: flex;
+    flex-direction: {% if orientation == 'portrait' %}column{% else %}row{% endif %};
+    align-items: {% if orientation == 'portrait' %}center{% else %}center{% endif %};
+    gap: {% if orientation == 'landscape' %}6mm{% else %}0{% endif %};
+  }
+
+  .rc-logo {
+    height: {% if orientation == 'portrait' %}28mm{% else %}18mm{% endif %};
+    width: auto;
+  }
+
+  .header-title {
+    font-family: 'Caveat', cursive;
+    font-weight: bold;
+    font-size: {% if orientation == 'portrait' %}44pt{% else %}32pt{% endif %};
+    color: #1a237e;
+    line-height: 1;
+    margin-top: {% if orientation == 'portrait' %}-4mm{% else %}0{% endif %};
+  }
+
+  /* ── Trennleiste ── */
+  .divider-navy {
+    height: {% if orientation == 'portrait' %}3mm{% else %}2.5mm{% endif %};
+    background: #1a237e;
+  }
+
+  /* ── Inhaltsbereich ── */
+  .content {
+    padding: {% if orientation == 'portrait' %}5mm 14mm 72mm{% else %}4mm 16mm 54mm{% endif %};
+  }
+
+  /* ── Terminzeilen ── */
+  .event-row {
+    display: flex;
+    align-items: center;
+    padding: {% if orientation == 'portrait' %}3.5mm 3mm{% else %}3.5mm 3mm{% endif %};
+    border-bottom: 1px solid rgba(232, 135, 34, 0.25);
+  }
+
+  .event-row:nth-child(even) {
+    background: rgba(26, 35, 126, 0.04);
+  }
+
+  .event-wd {
+    font-weight: bold;
+    font-size: {% if orientation == 'portrait' %}14pt{% else %}15pt{% endif %};
+    color: #e87722;
+    width: {% if orientation == 'portrait' %}9mm{% else %}10mm{% endif %};
+    flex-shrink: 0;
+  }
+
+  .event-date {
+    font-weight: bold;
+    font-size: {% if orientation == 'portrait' %}15pt{% else %}16pt{% endif %};
+    color: #1a237e;
+    width: {% if orientation == 'portrait' %}36mm{% else %}38mm{% endif %};
+    flex-shrink: 0;
+  }
+
+  .event-time {
+    font-size: {% if orientation == 'portrait' %}12pt{% else %}14pt{% endif %};
+    color: #555;
+    width: {% if orientation == 'portrait' %}30mm{% else %}34mm{% endif %};
+    flex-shrink: 0;
+  }
+
+  .event-location {
+    font-size: {% if orientation == 'portrait' %}12pt{% else %}14pt{% endif %};
+    color: #333;
+    flex: 1;
+  }
+
+  /* ── Fixierter unterer Bereich ── */
+  .bottom {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .info-block {
+    background: #fff8f0;
+    border-top: 4px solid #e87722;
+    padding: {% if orientation == 'portrait' %}4mm 14mm{% else %}3mm 16mm{% endif %};
+    display: flex;
+    align-items: center;
+    gap: 6mm;
+  }
+
+  .info-body {
+    flex: 1;
+  }
+
+  .info-title {
+    font-weight: bold;
+    font-size: {% if orientation == 'portrait' %}13pt{% else %}14pt{% endif %};
+    color: #e87722;
+    margin-bottom: 1.5mm;
+  }
+
+  .info-text {
+    font-size: {% if orientation == 'portrait' %}10pt{% else %}11pt{% endif %};
+    color: #444;
+    line-height: 1.55;
+  }
+
+  .info-qr {
+    height: {% if orientation == 'portrait' %}24mm{% else %}22mm{% endif %};
+    width: auto;
+    flex-shrink: 0;
+  }
+
+  .footer {
+    background: #1a237e;
+    padding: {% if orientation == 'portrait' %}5mm 14mm 15mm{% else %}4mm 16mm 11mm{% endif %};
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-logo {
+    height: {% if orientation == 'portrait' %}13mm{% else %}11mm{% endif %};
+    width: auto;
+  }
+
+  .footer-stand {
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 11pt;
+  }
+</style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="header">
+  <img class="rc-logo" src="RC_blueorange.png" alt="Repair Café Logo">
+  <div class="header-title">Termine</div>
+</div>
+
+<div class="divider-navy"></div>
+
+<div class="content">
+
+  {% for chunk in chunks %}
+  {% if not loop.first %}<div style="page-break-before: always;"></div>{% endif %}
+  {% for t in chunk %}
+  <div class="event-row">
+    <span class="event-wd">{{ t.datum[:2] }}</span>
+    <span class="event-date">{{ t.datum[4:] }}</span>
+    <span class="event-time">{{ t.zeit }}</span>
+    <span class="event-location">{{ t.ort }}</span>
+  </div>
+  {% endfor %}
+  {% endfor %}
+
+</div>
+
+<div class="bottom">
+  <div class="info-block">
+    <div class="info-body">
+      <div class="info-title">Repair Café Jülich</div>
+      <div class="info-text">
+        Möchtest du etwas reparieren lassen oder reparierst selber gerne kaputte Dinge?
+        Dann bist du im Repair Café genau richtig. Komm einfach unangemeldet vorbei und
+        bring deinen defekten Gebrauchsgegenstand mit.<br>
+        Termine &amp; mehr Infos: <strong>repaircafe.erfindergeist.org</strong>  —
+          Änderungen vorbehalten.
+      </div>
+    </div>
+    <img class="info-qr" src="QRlinktree.png" alt="QR-Code">
+  </div>
+
+  <div class="footer">
+    <img class="footer-logo" src="logo_typeface_wide.svg" alt="Erfindergeist Jülich">
+    <span class="footer-stand">Stand: {{ erstellt }}</span>
+  </div>
+</div>
+
+</body>
+</html>

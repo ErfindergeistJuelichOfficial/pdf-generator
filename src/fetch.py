@@ -82,6 +82,7 @@ def fetch() -> list[dict]:
             "zeit": f"{_fmt_time(event['dtstart'])}–{_fmt_time(event['dtend'])}",
             "ort": _resolve_location(tags, event.get("location", "")),
             "beschreibung": _resolve_description(tags),
+            "tags": tags,
             "_sort_key": event["dtstart"],
         })
 
