@@ -55,3 +55,13 @@ jobs:
             | `repaircafe_hoch.pdf` | A4 Hochformat | Repair Café — alle Termine |
             | `repaircafe_quer.pdf` | A4 Querformat | Repair Café — alle Termine |
           files: output/*.pdf
+
+      - name: PDF to share.erfindergeist.org
+        uses: SamKirkland/FTP-Deploy-Action@v4.4.0
+        with:
+          server: erfindergeist.org
+          username: ${{ secrets.FTP_USERNAME_SHARE }}
+          password: ${{ secrets.FTP_PASSWORD_SHARE }}
+          local-dir: ./output/
+          protocol: ftps
+          state-name: .ftp-deploy-pdf-termine-state.json
