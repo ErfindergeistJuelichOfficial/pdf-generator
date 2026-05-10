@@ -3,44 +3,33 @@ import requests
 from datetime import datetime
 
 WEEKDAYS = ["Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"]
+TAGS_JSON_URL = "https://share.erfindergeist.org/config/tags.json"
 
-LOCATION_TAGS = {
-    "#awo": "Erfindergeist Werkstatt, Jülich",
-    "#stadtbücherei": "Stadtbücherei Jülich",
-}
 
-DESCRIPTION_TAGS = {
-    "#offenewerkstatt": (
-        "Wir bieten der Öffentlichkeit eine offene Werkstatt mit Raum, Maschinen und "
-        "Werkzeug zur erfolgreichen Umsetzung eigener Projekte."
-    ),
-    "#stammtisch": (
-        "Lockerer Austausch für Mitglieder, bringt eure aktuellen Ideen oder Prototypen "
-        "mit und lasst uns in entspannter Runde fachsimpeln."
-    ),
-    "#repaircafe": (
-        "Möchtest du etwas reparieren lassen oder reparierst selber gerne kaputte Dinge? "
-        "Dann bist du im Repair Café genau richtig. Komm einfach unangemeldet vorbei und "
-        "bring deinen defekten Gebrauchsgegenstand mit."
-    ),
-}
+def _load_tags() -> tuple[dict, dict]:
+    response = requests.get(TAGS_JSON_URL, timeout=15)
+    response.raise_for_status()
+    data = response.json()
+    location_tags = {tag: v["location"] for tag, v in data.get("location_tags", {}).items()}
+    description_tags = {tag: v["description"] for tag, v in data.get("description_tags", {}).items()}
+    return location_tags, description_tags
 
 
 def _parse_tags(description: str) -> list[str]:
     return [word.lower() for word in description.split() if word.startswith("#")]
 
 
-def _resolve_location(tags: list[str], fallback: str) -> str:
+def _resolve_location(tags: list[str], fallback: str, location_tags: dict) -> str:
     for tag in tags:
-        if tag in LOCATION_TAGS:
-            return LOCATION_TAGS[tag]
+        if tag in location_tags:
+            return location_tags[tag]
     return fallback or ""
 
 
-def _resolve_description(tags: list[str]) -> str:
+def _resolve_description(tags: list[str], description_tags: dict) -> str:
     for tag in tags:
-        if tag in DESCRIPTION_TAGS:
-            return DESCRIPTION_TAGS[tag]
+        if tag in description_tags:
+            return description_tags[tag]
     return ""
 
 
@@ -56,6 +45,8 @@ def _fmt_time(iso: str) -> str:
 
 
 def fetch() -> list[dict]:
+    location_tags, description_tags = _load_tags()
+
     url = os.environ["TERMINE_JSON_URL"]
     response = requests.get(url, timeout=15)
     response.raise_for_status()
@@ -80,8 +71,8 @@ def fetch() -> list[dict]:
             "titel": title,
             "datum": _fmt_date(event["dtstart"]),
             "zeit": f"{_fmt_time(event['dtstart'])}–{_fmt_time(event['dtend'])}",
-            "ort": _resolve_location(tags, event.get("location", "")),
-            "beschreibung": _resolve_description(tags),
+            "ort": _resolve_location(tags, event.get("location", ""), location_tags),
+            "beschreibung": _resolve_description(tags, description_tags),
             "tags": tags,
             "_sort_key": event["dtstart"],
         })
