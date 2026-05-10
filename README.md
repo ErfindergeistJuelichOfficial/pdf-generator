@@ -1,39 +1,44 @@
 # pdf-termine
 
-Generiert Terminübersichten als PDF für den **Erfindergeist Jülich e.V.**
-Die Termine werden live von [erfindergeist.org](https://erfindergeist.org) abgerufen.
+Generates event schedule PDFs for **Erfindergeist Jülich e.V.**
+Events are fetched live from [erfindergeist.org](https://erfindergeist.org).
 
-## Voraussetzungen
+## Prerequisites
 
-- [Podman](https://podman.io) mit `podman-compose` **oder** [Docker](https://www.docker.com) mit `docker compose`
+- [Podman](https://podman.io) with `podman-compose` **or** [Docker](https://www.docker.com) with `docker compose`
 
-## PDFs generieren
+## Generate PDFs
 
 ```bash
 podman compose up --build
 ```
 
-Die fertigen PDFs liegen danach im Ordner `output/`:
+The finished PDFs will be placed in the `output/` folder:
 
-| Datei | Format | Inhalt |
+| File | Format | Content |
 |---|---|---|
-| `terminuebersicht_hoch_kurz.pdf` | A4 Hochformat | nächste 9 Termine |
-| `terminuebersicht_quer_kurz.pdf` | A4 Querformat | nächste 6 Termine |
-| `terminuebersicht_hoch_alle.pdf` | A4 Hochformat | alle Termine |
-| `terminuebersicht_quer_alle.pdf` | A4 Querformat | alle Termine |
-| `repaircafe_hoch.pdf` | A4 Hochformat | Repair Café — alle Termine |
-| `repaircafe_quer.pdf` | A4 Querformat | Repair Café — alle Termine |
+| `terminuebersicht_hoch.pdf` | A4 Portrait | next 9 events |
+| `terminuebersicht_quer.pdf` | A4 Landscape | next 6 events |
+| `repaircafe_hoch.pdf` | A4 Portrait | Repair Café — all events |
+| `repaircafe_quer.pdf` | A4 Landscape | Repair Café — all events |
 
-## Konfiguration
+## Configuration
 
-Die API-URL ist in `compose.yaml` hinterlegt und zeigt auf die Live-Daten von erfindergeist.org.
-Für eine abweichende URL kann eine `.env`-Datei angelegt werden (siehe `.env.example`).
+The API URL is defined in `compose.yaml` and points to the live data from erfindergeist.org.
+For a different URL, create a `.env` file (see `.env.example`).
 
-## Automatische Generierung
+## Automated Generation
 
-Via GitHub Actions wird **jeden Montag um 03:00 Uhr** automatisch ein neuer
-[Release](../../releases) mit allen sechs PDFs erstellt.
-Der Workflow lässt sich auch manuell unter **Actions → Termine PDF generieren → Run workflow** starten.
+A GitHub Actions workflow runs **every Monday at 03:00 UTC** and publishes a new
+[Release](../../releases) with all four PDFs.
+The workflow can also be triggered manually via **Actions → Termine PDF generieren → Run workflow**.
+
+## VS Code Extensions
+
+This project recommends two extensions (`.vscode/extensions.json`):
+
+- **[PDF Preview](https://marketplace.visualstudio.com/items?itemName=tomoki1207.pdf)** (`tomoki1207.pdf`) — preview generated PDFs directly in the editor without leaving VS Code.
+- **[Jinja](https://marketplace.visualstudio.com/items?itemName=samuelcolvin.jinjahtml)** (`samuelcolvin.jinjahtml`) — syntax highlighting for the Jinja2 HTML templates in `src/templates/`, suppresses false HTML error markers caused by `{{ }}` and `{% %}` expressions.
 
 ---
 

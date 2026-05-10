@@ -24,12 +24,10 @@ repaircafe = [t for t in termine if "#repaircafe" in t.get("tags", [])]
 
 # (dateiname, template, orientierung, events, termine_pro_seite, alle_seiten)
 CONFIGS = [
-    ("terminuebersicht_hoch_kurz.pdf", template_termine, "portrait",  termine,    9, False),
-    ("terminuebersicht_quer_kurz.pdf",  template_termine, "landscape", termine,    6, False),
-    ("terminuebersicht_hoch_alle.pdf",  template_termine, "portrait",  termine,    9, True),
-    ("terminuebersicht_quer_alle.pdf",  template_termine, "landscape", termine,    6, True),
-    ("repaircafe_hoch.pdf",             template_rc,      "portrait",  repaircafe, 15, True),
-    ("repaircafe_quer.pdf",             template_rc,      "landscape", repaircafe, 10, True),
+    ("terminuebersicht_hoch.pdf", template_termine, "portrait",  termine,    9, False),
+    ("terminuebersicht_quer.pdf", template_termine, "landscape", termine,    6, False),
+    ("repaircafe_hoch.pdf",       template_rc,      "portrait",  repaircafe, 15, True),
+    ("repaircafe_quer.pdf",       template_rc,      "landscape", repaircafe, 10, True),
 ]
 
 

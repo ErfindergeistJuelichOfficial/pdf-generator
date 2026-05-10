@@ -8,14 +8,12 @@ Niemals `pip install` oder `python` direkt auf dem Host. Alles via Container:
 podman compose up --build
 ```
 
-## Die 6 Ausgaben und ihre Limits
+## Die 4 Ausgaben und ihre Limits
 
 | Datei | Template | Format | Termine pro Seite |
 | --- | --- | --- | --- |
-| `terminuebersicht_hoch_kurz.pdf` | termine.html | A4 Hochformat | 9 (nur 1 Seite) |
-| `terminuebersicht_quer_kurz.pdf` | termine.html | A4 Querformat | 6 (nur 1 Seite) |
-| `terminuebersicht_hoch_alle.pdf` | termine.html | A4 Hochformat | 9 pro Seite, alle Termine |
-| `terminuebersicht_quer_alle.pdf` | termine.html | A4 Querformat | 6 pro Seite, alle Termine |
+| `terminuebersicht_hoch.pdf` | termine.html | A4 Hochformat | 9 (nur 1 Seite) |
+| `terminuebersicht_quer.pdf` | termine.html | A4 Querformat | 6 (nur 1 Seite) |
 | `repaircafe_hoch.pdf` | repaircafe.html | A4 Hochformat | 15 pro Seite, nur `#repaircafe`-Termine |
 | `repaircafe_quer.pdf` | repaircafe.html | A4 Querformat | 10 pro Seite, nur `#repaircafe`-Termine |
 

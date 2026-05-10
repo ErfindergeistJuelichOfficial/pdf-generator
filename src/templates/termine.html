@@ -66,9 +66,9 @@
 
   /* ── Gold divider ── */
   .divider {
-    height: 2px;
+    height: 1.5px;
     background: #F9B338;
-    margin-bottom: 5mm;
+    margin: 0 -12mm 5mm;
   }
 
   /* ── Table ── */
@@ -84,14 +84,14 @@
 
   tbody td {
     padding: 2.2mm 2mm;
-    vertical-align: top;
+    vertical-align: baseline;
     line-height: 1.35;
   }
 
   td.datum-zeit {
     white-space: nowrap;
     width: 28mm;
-    vertical-align: top;
+    vertical-align: baseline;
   }
 
   .datum {
@@ -133,7 +133,7 @@
   /* ── Info block ── */
   .info-block {
     margin: 0 12mm 4mm;
-    border-left: 3px solid #159989;
+    /* border-left: 3px solid #159989; */
     padding: 3mm 4mm;
     background: #f7fdfc;
     display: flex;
@@ -173,7 +173,8 @@
   }
 
   .footer {
-    background: #159989;
+    background: rgba(21, 153, 137, 0.06);
+    border-top: 1.5px solid #159989;
     padding: 4mm 12mm 20mm;
     display: flex;
     align-items: center;
@@ -183,7 +184,7 @@
     flex: 1;
     display: flex;
     justify-content: space-between;
-    color: rgba(255,255,255,0.9);
+    color: #333;
     font-size: 10pt;
   }
 
@@ -232,11 +233,10 @@
       <div class="info-body">
         <div class="info-title">Wer sind wir?</div>
         <div class="info-text">
-          Wir sind eine offene Werkstatt in Jülich. Ein Ort zum Tüfteln, Bauen, Reparieren
+          Wir sind eine offene Werkstatt in Jülich — ein Ort zum Tüfteln, Bauen, Reparieren
           und Voneinander-Lernen. Einfach vorbeikommen, mitmachen, Werkzeug nutzen.<br>
-          Alle Termine &amp; mehr Infos auf <strong>erfindergeist.org</strong> —
-          Änderungen vorbehalten. <br> Unsere Werkstatt findest du Im Gebäude der AWO Stadt Jülich e. V.
-Marie-Juchacz-Weg 2, 52428 Jülich
+          Du findest uns im Gebäude der AWO Stadt Jülich e. V., Marie-Juchacz-Weg 2, 52428 Jülich.<br>
+          Alle Termine &amp; mehr Infos auf <strong>erfindergeist.org</strong> — Änderungen vorbehalten.
         </div>
       </div>
       <img class="info-qr" src="QRlinktree.png" alt="QR-Code Linktree">

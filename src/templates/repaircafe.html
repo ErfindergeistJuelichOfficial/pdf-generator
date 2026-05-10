@@ -54,7 +54,7 @@
 
   /* ── Trennleiste ── */
   .divider-navy {
-    height: {% if orientation == 'portrait' %}3mm{% else %}2.5mm{% endif %};
+    height: 4px;
     background: #1a237e;
   }
 
@@ -145,7 +145,8 @@
   }
 
   .footer {
-    background: #1a237e;
+    background: rgba(26, 35, 126, 0.06);
+    border-top: 4px solid #1a237e;
     padding: {% if orientation == 'portrait' %}5mm 14mm 15mm{% else %}4mm 16mm 11mm{% endif %};
     display: flex;
     align-items: center;
@@ -158,7 +159,7 @@
   }
 
   .footer-stand {
-    color: rgba(255, 255, 255, 0.65);
+    color: #333;
     font-size: 11pt;
   }
 </style>
@@ -197,10 +198,9 @@
       <div class="info-text">
         Möchtest du etwas reparieren lassen oder reparierst selber gerne kaputte Dinge?
         Dann bist du im Repair Café genau richtig. Komm einfach unangemeldet vorbei und
-        bring deinen defekten Gebrauchsgegenstand mit.<br>
-        Termine &amp; mehr Infos: <strong>repaircafe.erfindergeist.org</strong>  —
-          Änderungen vorbehalten. <br> Unsere Werkstatt findest du Im Gebäude der AWO Stadt Jülich e. V.
-Marie-Juchacz-Weg 2, 52428 Jülich
+        bring dein kaputtes Gerät mit.<br>
+        Du findest uns im Gebäude der AWO Stadt Jülich e. V., Marie-Juchacz-Weg 2, 52428 Jülich.<br>
+        Termine &amp; mehr Infos auf <strong>repaircafe.erfindergeist.org</strong> — Änderungen vorbehalten.
       </div>
     </div>
     <img class="info-qr" src="QRlinktree.png" alt="QR-Code">
