@@ -48,10 +48,8 @@ jobs:
 
             | Datei | Format | Inhalt |
             |---|---|---|
-            | `terminuebersicht_hoch_kurz.pdf` | A4 Hochformat | nächste 9 Termine |
-            | `terminuebersicht_quer_kurz.pdf` | A4 Querformat | nächste 6 Termine |
-            | `terminuebersicht_hoch_alle.pdf` | A4 Hochformat | alle Termine |
-            | `terminuebersicht_quer_alle.pdf` | A4 Querformat | alle Termine |
+            | `terminuebersicht_hoch.pdf` | A4 Hochformat | nächste 9 Termine |
+            | `terminuebersicht_quer.pdf` | A4 Querformat | nächste 6 Termine |
             | `repaircafe_hoch.pdf` | A4 Hochformat | Repair Café — alle Termine |
             | `repaircafe_quer.pdf` | A4 Querformat | Repair Café — alle Termine |
           files: output/*.pdf
