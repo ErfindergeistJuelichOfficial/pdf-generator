@@ -63,3 +63,5 @@ jobs:
           local-dir: ./output/
           protocol: ftps
           state-name: .ftp-deploy-pdf-termine-state.json
+          exclude: |
+            **/.gitkeep
