@@ -16,11 +16,16 @@ podman compose up --build
 The finished PDFs will be placed in the `output/` folder:
 
 | File | Format | Content |
-|---|---|---|
+| --- | --- | --- |
 | `terminuebersicht_hoch.pdf` | A4 Portrait | next 9 events |
 | `terminuebersicht_quer.pdf` | A4 Landscape | next 6 events |
-| `repaircafe_hoch.pdf` | A4 Portrait | Repair Café — all events |
+| `termine_repaircafe_hoch.pdf` | A4 Portrait | Repair Café — all events |
 | `repaircafe_quer.pdf` | A4 Landscape | Repair Café — all events |
+| `repaircafe_haftungsbegrenzung.pdf` | A4 Landscape | Repair Café liability waiver (2× A5) |
+| `repaircafe_laufzettel.pdf` | A4 Landscape | Repair Café repair tracking form (2× A5) |
+| `datenschutz.pdf` | A4 Portrait | Repair Café privacy notice |
+| `vereinssatzung.pdf` | A4 Portrait | Vereinssatzung Erfindergeist Jülich e.V. |
+| `einweisung_werkstatt.pdf` | A4 Portrait | Einweisungsbestätigung &amp; Haftungsausschluss Offene Werkstatt |
 
 ## Configuration
 
@@ -42,4 +47,4 @@ This project recommends two extensions (`.vscode/extensions.json`):
 
 ---
 
-[erfindergeist.org](https://erfindergeist.org) · kontakt@erfindergeist.org
+[erfindergeist.org](https://erfindergeist.org) · [kontakt@erfindergeist.org](mailto:kontakt@erfindergeist.org)

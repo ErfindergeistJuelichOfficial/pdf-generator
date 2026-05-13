@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<style>
+  @page { size: A4 portrait; margin: 0; }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 9.5pt;
+    color: #111;
+    line-height: 1.4;
+    padding: 14mm 18mm 12mm;
+  }
+
+  h1 {
+    font-size: 13pt;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 5mm;
+  }
+
+  .address {
+    font-weight: bold;
+    line-height: 1.45;
+    margin-bottom: 4mm;
+  }
+
+  .meta-block {
+    margin-bottom: 4mm;
+  }
+
+  .meta-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 4mm;
+    margin-bottom: 2.5mm;
+  }
+
+  .meta-label {
+    white-space: nowrap;
+    min-width: 38mm;
+  }
+
+  .meta-value-bold {
+    font-weight: bold;
+  }
+
+  .meta-underline {
+    flex: 1;
+    border-bottom: 1px solid #111;
+    height: 5mm;
+  }
+
+  p {
+    margin-bottom: 2.5mm;
+    text-align: justify;
+  }
+
+  .machine-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2mm 5mm;
+    margin-bottom: 2.5mm;
+  }
+
+  .write-section {
+    margin: 6mm 0 4mm;
+  }
+
+  .write-line {
+    border-bottom: 1px solid #aaa;
+    height: 6.5mm;
+  }
+
+  h2 {
+    font-size: 9.5pt;
+    font-weight: bold;
+    margin-bottom: 1.5mm;
+  }
+
+  .sig-name-field {
+    width: 65mm;
+    border-bottom: 1px solid #111;
+    height: 6mm;
+    margin-bottom: 1mm;
+  }
+
+  .sig-row {
+    display: flex;
+    gap: 8mm;
+    margin-top: 5mm;
+  }
+
+  .sig-field {
+    flex: 1;
+  }
+
+  .sig-line {
+    border-bottom: 1px solid #111;
+    height: 6mm;
+    margin-bottom: 1mm;
+  }
+
+  .sig-label {
+    font-size: 8pt;
+    color: #555;
+  }
+
+  .stand {
+    font-size: 8pt;
+    color: #555;
+    margin-top: 6mm;
+  }
+</style>
+</head>
+<body>
+
+<h1>Einweisungsbestätigung und Haftungsausschluss</h1>
+
+<div class="address">
+  Erfindergeist Jülich e.V.<br>
+  Bauhofstraße 18<br>
+  52428 Jülich
+</div>
+
+<div class="meta-block">
+  <div class="meta-row">
+    <span class="meta-label">Arbeitsbereich:</span>
+    <span class="meta-value-bold">Offene Werkstatt</span>
+  </div>
+  <div class="meta-row">
+    <span class="meta-label">Durchgeführt von:</span>
+    <span class="meta-underline"></span>
+  </div>
+  <div class="meta-row">
+    <span class="meta-label">Durchgeführt am:</span>
+    <span class="meta-underline"></span>
+  </div>
+</div>
+
+<p>Folgende Person wurde über Gefahren, Arbeitssicherheit, Gesundheitsschutz und
+Verhaltensregeln eingewiesen. Bitte einkreisen (neue Maschinen ausschreiben):</p>
+
+<div class="machine-cloud">
+  <span>3D-Drucker2</span>
+  <span>Bandsäge</span>
+  <span>Buttonmaschine</span>
+  <span>Dekupiersäge</span>
+  <span>Elektro-Tacker</span>
+  <span>Fliesenschneider</span>
+  <span>Hand-Gehrungssäge</span>
+  <span>Hitzepresse</span>
+  <span>Laser-Gravierer</span>
+  <span>Nass/Trockenschleifer</span>
+  <span>Oberfräse</span>
+  <span>Resin-Drucker</span>
+  <span>Resin-Wäscher</span>
+  <span>Schneidplotter</span>
+  <span>Schwingschleifer</span>
+  <span>Sublimationsdrucker</span>
+  <span>Tischbohrmaschine</span>
+  <span>Winkelschleifer</span>
+</div>
+
+<div class="write-section">
+  {% for _ in range(4) %}
+  <div class="write-line"></div>
+  {% endfor %}
+</div>
+
+<h2>Nutzungsbedingung und Haftungsausschluss:</h2>
+
+<p>Die Nutzung der Werkzeuge und Maschinen erfolgt auf eigene Gefahr. Nutzer*innen ab
+18 Jahren müssen vor Arbeitsbeginn eine Einweisung durch eine geeignete Person des
+Erfindergeist Jülich e.V. erhalten und diese Bestätigung unterzeichnen. Damit
+verpflichten sie sich, den Anweisungen des Aufsichtspersonals und der Betreiber stets
+Folge zu leisten. Aufsichtspersonal und Betreiber der Offenen Werkstatt werden hiermit
+von jeglicher Haftung freigestellt.</p>
+
+<p>Dieser Ausschluss gilt nicht bei fehlerhafter oder vorsätzlich unterlassener
+Einweisung durch Mitarbeiter*innen. Fahrlässig oder vorsätzlich beschädigtes Werkzeug
+ist von Nutzer*innen zu ersetzen.</p>
+
+<p>Jugendliche ab 12 Jahren benötigen eine unterzeichnete Einverständniserklärung ihrer
+Erziehungsberechtigten, die vor Nutzungsbeginn auszuhändigen ist. Kinder unter 12
+Jahren dürfen nur in Begleitung Erziehungsberechtigter in der Werkstatt arbeiten.</p>
+
+<div style="margin-top: 6mm;">
+  <div class="sig-name-field"></div>
+  <div class="sig-label">Name, Vorname</div>
+</div>
+
+<div class="sig-row">
+  <div class="sig-field">
+    <div class="sig-line"></div>
+    <div class="sig-label">Ort, Datum</div>
+  </div>
+  <div class="sig-field">
+    <div class="sig-line"></div>
+    <div class="sig-label">Unterschrift</div>
+  </div>
+</div>
+
+<div class="stand">Stand: 13.05.2026</div>
+
+</body>
+</html>

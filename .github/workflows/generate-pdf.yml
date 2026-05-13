@@ -50,8 +50,13 @@ jobs:
             |---|---|---|
             | `terminuebersicht_hoch.pdf` | A4 Hochformat | nächste 9 Termine |
             | `terminuebersicht_quer.pdf` | A4 Querformat | nächste 6 Termine |
-            | `repaircafe_hoch.pdf` | A4 Hochformat | Repair Café — alle Termine |
+            | `termine_repaircafe_hoch.pdf` | A4 Hochformat | Repair Café — alle Termine |
             | `repaircafe_quer.pdf` | A4 Querformat | Repair Café — alle Termine |
+            | `repaircafe_haftungsbegrenzung.pdf` | A4 Querformat | Haftungsbegrenzung Repair Café (2× A5) |
+            | `repaircafe_laufzettel.pdf` | A4 Querformat | Laufzettel Repair Café (2× A5) |
+            | `datenschutz.pdf` | A4 Hochformat | Datenschutzhinweis Repair Café |
+            | `vereinssatzung.pdf` | A4 Hochformat | Vereinssatzung Erfindergeist Jülich e.V. |
+            | `einweisung_werkstatt.pdf` | A4 Hochformat | Einweisungsbestätigung &amp; Haftungsausschluss Offene Werkstatt |
           files: output/*.pdf
 
       - name: PDF to share.erfindergeist.org

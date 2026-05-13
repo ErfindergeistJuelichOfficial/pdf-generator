@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<style>
+  @page {
+    size: A4 portrait;
+    margin: 18mm 20mm 18mm;
+    @top-right {
+      content: "Vereinssatzung Erfindergeist Jülich e.V. 03.2024";
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 7.5pt;
+      color: #999;
+    }
+    @bottom-right {
+      content: counter(page);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 8pt;
+      color: #888;
+    }
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 9.5pt;
+    color: #111;
+    line-height: 1.4;
+  }
+
+  /* ── TOC ── */
+  .toc-title {
+    font-size: 14pt;
+    font-weight: bold;
+    color: #2980b9;
+    margin-bottom: 4mm;
+  }
+
+  .toc-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.8mm 0;
+    border-bottom: 1px dotted #ccc;
+  }
+
+  .toc-row.sub {
+    padding-left: 6mm;
+  }
+
+  .toc-row a {
+    color: #111;
+    text-decoration: none;
+  }
+
+  .toc-row a::after {
+    content: target-counter(attr(href url), page);
+    float: right;
+    color: #555;
+  }
+
+  /* ── Abschnitte ── */
+  h2 {
+    font-size: 12pt;
+    font-weight: bold;
+    color: #2980b9;
+    margin-top: 7mm;
+    margin-bottom: 2.5mm;
+  }
+
+  h3 {
+    font-size: 9.5pt;
+    font-weight: bold;
+    color: #2980b9;
+    margin-top: 4mm;
+    margin-bottom: 2mm;
+  }
+
+  p {
+    margin-bottom: 3mm;
+    text-align: justify;
+  }
+
+  ol {
+    margin: 1mm 0 3mm 10mm;
+  }
+
+  ul {
+    margin: 1mm 0 3mm 10mm;
+    list-style: disc;
+  }
+
+  ul.alpha {
+    list-style: none;
+    margin-left: 6mm;
+  }
+
+  ul.dash {
+    list-style: none;
+    margin-left: 4mm;
+  }
+
+  ul.dash li::before {
+    content: "– ";
+  }
+
+  li {
+    margin-bottom: 1.5mm;
+    text-align: justify;
+  }
+
+  ol li ol, ol li ul {
+    margin-top: 1mm;
+  }
+</style>
+</head>
+<body>
+
+<!-- ── Inhaltsverzeichnis ── -->
+<div class="toc-title">Inhalt</div>
+<div class="toc-row"><a href="#s1">§1 Firmierung des Vereins und Eintragung</a></div>
+<div class="toc-row"><a href="#s2">§2 Zweck des Vereins</a></div>
+<div class="toc-row"><a href="#s3">§3 Gemeinnützigkeit und Selbstlosigkeit</a></div>
+<div class="toc-row"><a href="#s4">§4 Geschäftsjahr</a></div>
+<div class="toc-row"><a href="#s5">§5 Organe des Vereins</a></div>
+<div class="toc-row"><a href="#s6">§6 Mitgliederversammlung</a></div>
+<div class="toc-row"><a href="#s7">§7 Vorstand und Gesamtvorstand</a></div>
+<div class="toc-row"><a href="#s8">§8 Mitgliedschaft und Beiträge</a></div>
+<div class="toc-row sub"><a href="#s8-1">(1) Vollmitgliedschaft</a></div>
+<div class="toc-row sub"><a href="#s8-2">(2) Fördermitgliedschaft/Ehrenmitgliedschaft</a></div>
+<div class="toc-row sub"><a href="#s8-3">(3) Mitgliedsbeiträge</a></div>
+<div class="toc-row sub"><a href="#s8-4">(4) Austritt/Ausschluss aus dem Verein</a></div>
+<div class="toc-row"><a href="#s9">§9 Stimmrecht</a></div>
+<div class="toc-row"><a href="#s10">§10 Ausschluss des Rechtsweges</a></div>
+<div class="toc-row"><a href="#s11">§11 Auflösung des Vereins</a></div>
+<div class="toc-row"><a href="#s12">§12 Satzungsänderung</a></div>
+<div class="toc-row"><a href="#s13">§13 Änderung des Zwecks/der Rechtsform des Vereins</a></div>
+<div class="toc-row"><a href="#s14">§14 Wahlen und Beschlüsse</a></div>
+
+<!-- ── §1 ── -->
+<h2 id="s1">§1 Firmierung des Vereins und Eintragung</h2>
+<p>Der Verein trägt den Namen „Erfindergeist Jülich" und ist im Vereinsregister des Amtsgerichts August-Klotz-Straße 14, 52349 Düren eingetragen. Der Sitz des Vereins ist Jülich.</p>
+
+<!-- ── §2 ── -->
+<h2 id="s2">§2 Zweck des Vereins</h2>
+<p>Der Verein verfolgt ausschließlich und unmittelbar gemeinnützige Ziele im Sinne des Abschnitts „Steuerbegünstigte Zwecke" der Abgabenordnung.</p>
+<p>Der Satzungszweck wird verwirklicht insbesondere durch die Förderung der Forschung und Wissenschaft und der Volksbildung, dem Handwerk- und der Handarbeit, der Kunst und der Jugend, sowie der Toleranz auf allen Gebieten.</p>
+<p>Um den satzungsgemäßen Zweck zu erreichen, bietet der Verein folgendes:</p>
+<ol>
+  <li>Allein oder im Austausch mit Anderen, kreative Projekte zu bearbeiten und bietet vereinfachten Zugang zu Werkzeugen, Maschinen, Informationen und Anleitungen.</li>
+  <li>Der Verein bietet ein offenes Forum für Technik-Interessierte und Gleichgesinnte mit und ohne eigene Ideen und regt zur Mitarbeit an.</li>
+  <li>Der Verein legt sein Augenmerk auf Wissensvermittlung durch:
+    <ul class="dash">
+      <li>Veranstaltung von Workshops zu Themen der Kunst, Handarbeit, und Wissenschaft</li>
+      <li>Veranstaltung von Schulungen (eigene Mitglieder und externe Dozenten)</li>
+      <li>Veranstaltung von Projektarbeiten</li>
+      <li>Kooperationen mit Bildungsträgern (Schulen, Hochschulen)</li>
+      <li>Unterstützung bei eigenen Projekten durch Hilfestellung bei technischen und fachlichen Fragen</li>
+    </ul>
+  </li>
+</ol>
+
+<!-- ── §3 ── -->
+<h2 id="s3">§3 Gemeinnützigkeit und Selbstlosigkeit</h2>
+<p>Der Verein ist politisch ungebunden und konfessionslos und lehnt sämtliche Form von Einflussnahme in dieser Hinsicht ab.</p>
+<p>Der Verein verfolgt ausschließlich gemeinnützige Zwecke, ist selbstlos tätig und verfolgt keine eigenwirtschaftlichen Interessen.</p>
+<p>Mittel des Vereins dürfen nur für die satzungsmäßigen Zwecke verwendet werden. Die Mitglieder erhalten keine Zuwendungen aus Mitteln des Vereins.</p>
+<p>Es darf keine Person durch Ausgaben, die dem Zweck des Vereins fremd sind, oder durch unverhältnismäßig hohe Vergütungen begünstigt werden.</p>
+
+<!-- ── §4 ── -->
+<h2 id="s4">§4 Geschäftsjahr</h2>
+<p>Das Geschäftsjahr des Vereins entspricht dem Kalenderjahr.</p>
+
+<!-- ── §5 ── -->
+<h2 id="s5">§5 Organe des Vereins</h2>
+<p>Die Organe des Vereins sind:</p>
+<ul class="alpha">
+  <li>(a) Die Mitgliederversammlung</li>
+  <li>(b) Der Vorstand und Gesamtvorstand</li>
+</ul>
+
+<!-- ── §6 ── -->
+<h2 id="s6">§6 Mitgliederversammlung</h2>
+<p>Die Mitgliederversammlung wählt den Gesamtvorstand, die Wahl wird im Rahmen der jährlichen Mitgliederversammlung durchgeführt. Die Mitgliederversammlung wählt jährlich 2 Kassenprüfer. Die Wiederwahl ist mehrfach möglich. Darüber hinaus kann der Verein bestimmen die Kassenprüfung extern an einen Dienstleister zu übergeben.</p>
+<p>Die Mitgliederversammlung hat darüber hinaus folgende Rechte und Pflichten:</p>
+<ul>
+  <li>Entgegennahme und Prüfung der Vorstandsberichte einschließlich des Kassenberichtes.</li>
+  <li>Festlegung oder Ablehnung der Mitgliedsbeitragsänderung auf Basis der Vorschläge des Vorstandes</li>
+  <li>Beschlussfassung von Satzungsänderungen</li>
+  <li>Beschlussfassung zur Auflösung des Vereins</li>
+</ul>
+
+<!-- ── §7 ── -->
+<h2 id="s7">§7 Vorstand und Gesamtvorstand</h2>
+<p>Der Vorstand besteht mindestens aus:</p>
+<ul class="alpha">
+  <li>(a) 1. Vorsitzender</li>
+  <li>(b) 1. Rechnungsführer</li>
+</ul>
+<p>Der Gesamtvorstand umfasst den Vorstand und seine Vertreter:</p>
+<ul class="alpha">
+  <li>(a) 2. Vorsitzender</li>
+  <li>(b) 2. Rechnungsführer</li>
+</ul>
+<p>Die Vertreter, vertreten den Vorstand nur im Innenverhältnis.</p>
+<p>Der Vorstand wird für 2 Jahre gewählt und die Amtszeit endet mit Neuwahl. Die erste Periode nach Gründung des Vereins endet mit dem Abschluss zweier vollständiger Geschäftsjahre durch Neuwahl.</p>
+<p>Die Vertreter sind nicht zur gerichtlichen Vertretung des Vereins berechtigt. Sie können den Verein nur außergerichtlich und auf Anfrage der Vorsitzenden vertreten.</p>
+<p>Der Vorstand gibt sich eine Geschäftsordnung.</p>
+<p>Der Vorstand kann für seine Tätigkeit eine angemessene Vergütung erhalten. Die Höhe der Vergütung wird durch die Mitgliederversammlung festgelegt.</p>
+<p>Der Vorstand ist gemeinschaftlich zur gerichtlichen, und außergerichtlichen, Vertretung des Vereins berechtigt.</p>
+<p>Der Vorstand ist verpflichtet eine Mitgliederversammlung einzuberufen:</p>
+<ul class="alpha">
+  <li>(a) Innerhalb von drei Monaten nach Abschluss des Geschäftsjahres</li>
+  <li>(b) Wenn dies mindestens 10% der Mitglieder, unter Angabe der Gründe, schriftlich verlangen. Der Antrag ist dem 1. Vorsitzenden schriftlich zuzustellen.</li>
+</ul>
+<p>Der Vorstand hat das Recht jederzeit eine Mitgliederversammlung einzuberufen. Die Einladung und Bekanntgabe der Tagesordnung erfolgt mindestens 10 Tage im Voraus über die bekannten Kanäle (Schriftlich via Postweg, via E-Mail, via WhatsApp oder „Andere" nach vorheriger Bekanntgabe).</p>
+<p>Die Mitgliederversammlung wird vom 1. Vorsitzenden, dem 2. Vorsitzenden oder einem weiteren Mitglied des Vorstandes einberufen.</p>
+<p>Die Mitgliederversammlung ist beschlussfähig, wenn 20% der Mitglieder anwesend sind.</p>
+
+<!-- ── §8 ── -->
+<h2 id="s8">§8 Mitgliedschaft und Beiträge</h2>
+
+<h3 id="s8-1">(1) Vollmitgliedschaft</h3>
+<p>Jede natürliche Person kann (vollwertiges) Mitglied des Vereins werden. Über den schriftlichen Aufnahmeantrag entscheidet der Vorstand. Kinder und Jugendliche bedürfen zur Wirksamkeit des Beitritts Ersuchens der Zustimmung eines Erziehungsberechtigten, sowie eines vom Erziehungsberechtigten unterzeichneten Haftungsausschlusses zu Gunsten des Vereins. Eine Altersbegrenzung gibt es nicht (jedoch können, aus Sicherheitsgründen, Einschränkungen bei der Verwendung von Maschinen und Werkzeugen, beschlossen werden).</p>
+<p>Über die Aufnahme als vollwertiges Mitglied entscheidet der Vorstand.</p>
+
+<h3 id="s8-2">(2) Fördermitgliedschaft/Ehrenmitgliedschaft</h3>
+<p>Neben der Möglichkeit einer Vollmitgliedschaft besteht die Möglichkeit zur Aufnahme als „Fördermitglied". Fördermitglieder können natürliche oder juristische Personen sein. Fördermitglieder unterstützen den Verein durch finanzielle Beiträge (finanzielle Mittel in Form von Mitgliedsbeiträgen), Sachmittel, Bereitstellung von Räumen oder Schlüsselkenntnissen als Dozenten/innen.</p>
+<p>Über die Aufnahme als Fördermitglied entscheidet der Vorstand unter vorheriger Abwägung eventueller Interessenskonflikte (Konfessionslosigkeit und Parteilosigkeit).</p>
+<p>Alle Mitglieder können an der Mitgliederversammlung sowie den Veranstaltungen des Vereins teilnehmen oder die Leistungen des Vereins in Anspruch nehmen. Juristische Personen nennen zuvor namentlich eine natürliche Person als Vertreter.</p>
+<p>Sowohl vollständige Mitglieder als auch Fördermitglieder können zu Ehrenmitglieder ernannt werden, wenn sie sich besonders für die Ziele des Vereins arrangieren.</p>
+
+<h3 id="s8-3">(3) Mitgliedsbeiträge</h3>
+<p>Der Verein erhebt für Vollmitglieder und Fördermitglieder einen Mitgliedsbeitrag. Die Höhe des Mitgliedsbeitrags wird auf der Mitgliederversammlung immer für das kommende Geschäftsjahr festgelegt (Änderung der Beitragssätze bedürfen der Erläuterung durch den Rechnungsführer oder seinen Vertreter). Die Mitgliederversammlung stimmt über die Änderung ab (einfache Mehrheit).</p>
+<p>Es besteht die Möglichkeit gesonderte Mitgliedsbeiträge für bestimmte Personengruppen festzulegen (solche Personengruppen können sein: Schüler, Studenten, Rentner, Bezieher von Leistungen nach dem Sozialgesetzbuch. Begünstigungen dieser Art können nur für ganze Gruppen beschlossen werden, nicht jedoch für Einzelpersonen).</p>
+<p>Der Vorstand ist berechtigt, in besonderen Fällen und auf Antrag eines Mitglieds, den Beitragssatz anzupassen oder Forderungen auszusetzen. Sämtliche Anpassungen erfolgen für einen zuvor festgelegten Zeitraum, welcher die Dauer von 12 Monaten nicht überschreiten darf. Danach erfolgt eine Neubewertung. Änderungen müssen schriftlich niedergelegt werden.</p>
+
+<h3 id="s8-4">(4) Austritt/Ausschluss aus dem Verein</h3>
+<p>Die Mitgliedschaft im Verein endet nach: Austritt, Ausschluss, Auflösung des Vereins mit anschließender Liquidationsphase oder durch Tod.</p>
+<p>Das Austrittsgesuch erfolgt schriftlich gegenüber dem Vorstand und kann nur zum Ende eines Quartals erfolgen. Das Gesuch muss einen Monat vor Ablauf angezeigt werden. Mit dem ordentlichen Austritt (immer zum Ende eines Quartals) erlöschen alle sich aus der Mitgliedschaft ergebenden Rechte und Pflichten, etwaiges Eigentum des Vereins ist unverzüglich zurückzugeben. Ausgenommen sind rückständige Beitragszahlungen.</p>
+<p>Auf Antrag können Mitglieder aus dem Verein ausgeschlossen werden, die:</p>
+<ul class="dash">
+  <li>den Interessen des Vereins entgegenarbeiten,</li>
+  <li>gegen die Satzung des Vereins verstoßen,</li>
+  <li>gegen die öffentlichen Sitten verstoßen und dadurch das Ansehen des Vereins schädigen oder</li>
+  <li>mit den Beitragszahlungen mehr als 3 Monate in Verzug sind.</li>
+</ul>
+<p>Über den Ausschluss entscheidet der Vorstand mit einfacher Mehrheit. Der Ausschluss wird durch Postzustellung oder E-Mail bekanntgegeben. Gegen den Ausschluss kann mit einer Frist von 30 Tagen Berufung vor der Mitgliederversammlung eingelegt werden, die Mitgliederversammlung entscheidet endgültig. Bis zur Mitgliederversammlung gilt der Vorstandsentscheid.</p>
+<p>Bei Ausschluss eines Mitglieds durch den Vorstandsbeschluss erlöschen mit sofortiger Wirkung alle sich ergebenden Rechte und Pflichten der Mitgliedschaft. Etwaige bereits gezahlte Mitgliedsbeiträge sind anteilig zum Tag des Ausschlusses an das ausgeschlossen Mitglied zu entrichten. Etwaige rückständige Beitragszahlungen zu Gunsten des Vereins, die sich aus der Mitgliedschaft zum Tage des Ausschlusses ergeben, bleiben bestehen.</p>
+
+<!-- ── §9 ── -->
+<h2 id="s9">§9 Stimmrecht</h2>
+<p>Jedes vollwertige Mitglied über 18 Jahre erhält Stimmrecht. Das Stimmrecht ist nicht übertragbar und besteht nur bei persönlicher Anwesenheit (etwaige Ausnahmen zur Anwesenheitsklausel ergeben sich aus dem BGB und der Satzung).</p>
+<p>Fördermitglieder erhalten kein Stimmrecht in der Mitgliederversammlung und können nicht in den Vorstand, Gesamtvorstand oder zum Kassenprüfer gewählt werden.</p>
+<p>Ein Mitglied ist darüber hinaus nicht stimmberechtigt, wenn er/sie selbst Gegenstand der Abstimmung ist. Beispielhafte Fälle:</p>
+<ul class="dash">
+  <li>Beschluss über Rechtsgeschäfte zwischen dem Verein und dem Mitglied,</li>
+  <li>Beschlussfassung über Aufnahme oder Ausschluss aus dem Verein oder</li>
+  <li>Einleitung oder Erledigung eines Rechtsstreits zwischen Mitglied und Verein</li>
+</ul>
+
+<!-- ── §10 ── -->
+<h2 id="s10">§10 Ausschluss des Rechtsweges</h2>
+<p>Für alle Streitigkeiten zwischen Mitgliedern und dem Verein ist der Rechtsweg ausgeschlossen.</p>
+
+<!-- ── §11 ── -->
+<h2 id="s11">§11 Auflösung des Vereins</h2>
+<p>Die Auflösung des Vereins kann nur von einer zu diesem Zweck einberufenen Mitgliederversammlung beschlossen werden. Es bedarf einer 4/5 Mehrheit der anwesenden Mitglieder.</p>
+<p>Bei der Auflösung des Vereins oder bei Wegfall steuerbegünstigter Zwecke fällt das Vermögen des Vereins an eine von der Mitgliederversammlung zu bestimmende juristische Person des öffentlichen Rechts oder eine andere steuerbegünstigte Körperschaft, die das Vermögen zur Förderung der Forschung, Wissenschaft, Volks- und Berufsbildung zu verwenden hat.</p>
+
+<!-- ── §12 ── -->
+<h2 id="s12">§12 Satzungsänderung</h2>
+<p>Die Satzung des Vereins tritt mit Beschluss der Mitgliederversammlung am 08.10.2020 in Kraft. Alle vorherigen Satzungen verlieren ihre Wirksamkeit mit Unterzeichnung der neuen Satzung.</p>
+<p>Erweiterungen und Änderungen der Satzung können von der Mitgliederversammlung beschlossen werden, sofern diese zuvor auf der Tagesordnung bekannt gemacht wurden. Falls nicht bereits anderweitig in der Satzung festgelegt, bedarf es einer 3/4 Mehrheit. Sämtliche Satzungsänderungen und Erweiterungen sind unverzüglich in das Vereinsregister einzutragen. Die neuen Satzungen werden durch den Vorstand unterzeichnet.</p>
+
+<!-- ── §13 ── -->
+<h2 id="s13">§13 Änderung des Zwecks/der Rechtsform des Vereins</h2>
+<p>Die Änderung des Zwecks oder der Rechtsform des Vereins kann nur durch 4/5 Mehrheit aller Mitglieder erfolgen.</p>
+
+<!-- ── §14 ── -->
+<h2 id="s14">§14 Wahlen und Beschlüsse</h2>
+<p>Wahlen und Beschlüsse der Mitgliederversammlung, des Vorstandes und des Gesamtvorstandes werden mit einfacher Stimmenmehrheit gefasst, sofern nicht anders festgelegt oder gesetzlich geregelt. Abstimmungen werden öffentlich geführt (nicht geheim) sofern eine geheime Wahl nicht ausdrücklich gewünscht und der Wunsch sinnvoll dargelegt werden kann. Alle Wahlen und Beschlüsse bedürfen der schriftlichen Niederlegung und sind durch den Vorstand/Gesamtvorstand zu unterzeichnen.</p>
+
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<style>
+  @page {
+    size: A4 landscape;
+    margin: 0;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 9.5pt;
+    color: #111;
+    background: #fff;
+    display: flex;
+    width: 297mm;
+    height: 210mm;
+  }
+
+  .copy {
+    width: 50%;
+    height: 100%;
+    padding: 13mm 14mm 11mm;
+    position: relative;
+    border-right: 1px dashed #aaa;
+  }
+
+  .copy:last-child {
+    border-right: none;
+  }
+
+  h1 {
+    font-size: 13pt;
+    font-weight: bold;
+    text-decoration: underline;
+    text-align: center;
+    margin-bottom: 6mm;
+  }
+
+  table.meta {
+    border-collapse: collapse;
+    margin-bottom: 5mm;
+  }
+
+  table.meta td {
+    padding: 0.1mm 0;
+    vertical-align: top;
+    line-height: 1.2;
+  }
+
+  table.meta td:first-child {
+    padding-right: 4mm;
+    white-space: nowrap;
+    color: #555;
+  }
+
+  p {
+    margin-bottom: 3mm;
+    text-align: justify;
+    line-height: 1.4;
+  }
+
+  .signatures {
+    position: absolute;
+    bottom: 11mm;
+    left: 14mm;
+    right: 14mm;
+  }
+
+  .sig-lines {
+    display: flex;
+    gap: 8mm;
+    margin-bottom: 3.5mm;
+  }
+
+  .sig-field {
+    flex: 1;
+  }
+
+  .sig-line {
+    border-bottom: 1px solid #111;
+    height: 6mm;
+    margin-bottom: 1mm;
+  }
+
+  .sig-label {
+    font-size: 8pt;
+    color: #555;
+  }
+
+  .stand {
+    font-size: 8pt;
+    color: #555;
+  }
+</style>
+</head>
+<body>
+
+{% for _ in [1, 2] %}
+<div class="copy">
+  <h1>Haftungsbegrenzung</h1>
+
+  <table class="meta">
+    <tr><td>Veranstalter:</td><td>Erfindergeist Jülich e.V.</td></tr>
+    <tr><td>Ansprechpartner:</td><td>Lars Eschweiler</td></tr>
+    <tr><td>Veranstaltungsort:</td><td>Erfindergeist Werkstatt</td></tr>
+    <tr><td>Straße &amp; Nr.:</td><td>Marie-Juchacz-Weg 2</td></tr>
+    <tr><td>PLZ, Ort:</td><td>52428, Jülich</td></tr>
+  </table>
+
+  <p>Wir weisen darauf hin, dass mit der Erlaubnis zur Teilnahme an der heutigen
+  Reparaturveranstaltung keine rechtsgeschäftliche Bindung eingegangen, d.h. also
+  kein Vertrag abgeschlossen wird.</p>
+
+  <p>Eintritt und Reparatur bzw. die (ehrenamtliche) Hilfestellung hierzu sind
+  bekanntlich kostenlos. Die Werkzeuge sind vor Ort vorhanden. Deren Gebrauch ist
+  ebenfalls kostenlos. Dennoch sind wir kein kostenloser Reparaturdienstleister,
+  sondern es geht um die in Ihrem Interesse liegende Hilfe zur Selbsthilfe.</p>
+
+  <p>Ansprüche auf Schadensersatz sind ausgeschlossen. Hiervon ausgenommen sind
+  Schadensersatzansprüche aus der Verletzung des Lebens, des Körpers, der Gesundheit
+  sowie die Haftung für sonstige Schäden, die auf einer vorsätzlichen oder grob
+  fahrlässigen Pflichtverletzung beruhen.</p>
+
+  <p>Die Angabe personenbezogener Daten erfolgt freiwillig. Ich wurde über Umfang
+  und Zweck der Speicherung und Verarbeitung meiner Daten aufgeklärt und erkläre
+  mich durch meine Unterschrift damit einverstanden.</p>
+
+  <p>Ich bin damit einverstanden, dass im Rahmen der Veranstaltung
+  <strong>Foto- und Videoaufnahmen</strong> angefertigt und gemäß dem
+  ausgelegten Datenschutzhinweis verwendet werden.</p>
+
+  <p>Sollten Sie nicht einverstanden sein, müssten wir Sie bitten, die Veranstaltung
+  nun wieder zu verlassen.</p>
+
+  <div class="signatures">
+    <div class="sig-lines">
+      <div class="sig-field">
+        <div class="sig-line"></div>
+        <div class="sig-label">Datum, Ort</div>
+      </div>
+      <div class="sig-field">
+        <div class="sig-line"></div>
+        <div class="sig-label">Unterschrift</div>
+      </div>
+    </div>
+    <div class="stand">Stand: 21.04.2026</div>
+  </div>
+</div>
+{% endfor %}
+
+</body>
+</html>
