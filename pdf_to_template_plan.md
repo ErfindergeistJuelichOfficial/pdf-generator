@@ -42,7 +42,7 @@ Alle statischen Templates verwenden diese einheitlichen Werte:
 | Body-Größe | `9.5pt` |
 | Body-Farbe | `#111` |
 | Line-height | `1.4` |
-| Titel (h1) | `13pt`, fett, unterstrichen, zentriert |
+| Titel (h1) | `13pt`, fett, zentriert |
 | Abschnittsüberschriften | `9.5pt`, fett |
 | Beschriftungen / Stand | `8pt #555` |
 | Absatzabstand | `margin-bottom: 3mm` |
@@ -63,7 +63,6 @@ body {
 h1 {
   font-size: 13pt;
   font-weight: bold;
-  text-decoration: underline;
   text-align: center;
 }
 
