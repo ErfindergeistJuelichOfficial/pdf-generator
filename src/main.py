@@ -16,11 +16,6 @@ OUTPUT_DIR.mkdir(exist_ok=True)
 env = Environment(loader=FileSystemLoader(str(SRC_DIR / "templates")))
 template_termine = env.get_template("termine.html")
 template_rc = env.get_template("termine_repaircafe.html")
-template_haftung = env.get_template("repaircafe_haftungsbegrenzung.html")
-template_laufzettel = env.get_template("repaircafe_laufzettel.html")
-template_datenschutz = env.get_template("datenschutz.html")
-template_vereinssatzung = env.get_template("vereinssatzung.html")
-template_einweisung = env.get_template("einweisung_werkstatt.html")
 
 heute = datetime.now().strftime("%d.%m.%Y")
 termine = fetch()
@@ -55,24 +50,19 @@ for filename, tmpl, orientation, events, per_page, alle in CONFIGS:
     pages = len(doc.pages)
     print(f"  {filename} ({total} Termine, {pages} Seite{'n' if pages > 1 else ''})")
 
-doc_haftung = HTML(string=template_haftung.render()).render()
-doc_haftung.write_pdf(str(OUTPUT_DIR / "repaircafe_haftungsbegrenzung.pdf"))
-print(f"  repaircafe_haftungsbegrenzung.pdf (statisch, {len(doc_haftung.pages)} Seite)")
+STATIC_TEMPLATES = [
+    "repaircafe_haftungsbegrenzung",
+    "repaircafe_laufzettel",
+    "datenschutz",
+    "vereinssatzung",
+    "einweisung_werkstatt",
+]
 
-doc_laufzettel = HTML(string=template_laufzettel.render()).render()
-doc_laufzettel.write_pdf(str(OUTPUT_DIR / "repaircafe_laufzettel.pdf"))
-print(f"  repaircafe_laufzettel.pdf (statisch, {len(doc_laufzettel.pages)} Seite)")
+for name in STATIC_TEMPLATES:
+    tmpl = env.get_template(f"{name}.html")
+    doc = HTML(string=tmpl.render(erstellt=heute)).render()
+    doc.write_pdf(str(OUTPUT_DIR / f"{name}.pdf"))
+    pages = len(doc.pages)
+    print(f"  {name}.pdf (statisch, {pages} Seite{'n' if pages > 1 else ''})")
 
-doc_datenschutz = HTML(string=template_datenschutz.render()).render()
-doc_datenschutz.write_pdf(str(OUTPUT_DIR / "datenschutz.pdf"))
-print(f"  datenschutz.pdf (statisch, {len(doc_datenschutz.pages)} Seite)")
-
-doc_vereinssatzung = HTML(string=template_vereinssatzung.render()).render()
-doc_vereinssatzung.write_pdf(str(OUTPUT_DIR / "vereinssatzung.pdf"))
-print(f"  vereinssatzung.pdf (statisch, {len(doc_vereinssatzung.pages)} Seite(n))")
-
-doc_einweisung = HTML(string=template_einweisung.render()).render()
-doc_einweisung.write_pdf(str(OUTPUT_DIR / "einweisung_werkstatt.pdf"))
-print(f"  einweisung_werkstatt.pdf (statisch, {len(doc_einweisung.pages)} Seite(n))")
-
-print(f"\nFertig — {len(CONFIGS) + 5} PDFs in {OUTPUT_DIR}")
+print(f"\nFertig — {len(CONFIGS) + len(STATIC_TEMPLATES)} PDFs in {OUTPUT_DIR}")

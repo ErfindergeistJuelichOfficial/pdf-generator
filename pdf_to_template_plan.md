@@ -116,16 +116,14 @@ Für Formulare, Aushänge, Merkblätter — kein Event-Feed.
 **main.py-Ergänzungen:**
 
 ```python
-# Oben bei den anderen Template-Loads:
-template_xyz = env.get_template("xyz.html")
-
-# Nach den anderen statischen Renders:
-doc_xyz = HTML(string=template_xyz.render()).render()
-doc_xyz.write_pdf(str(OUTPUT_DIR / "xyz.pdf"))
-print(f"  xyz.pdf (statisch, {len(doc_xyz.pages)} Seite(n))")
+# In STATIC_TEMPLATES eintragen (Name ohne Erweiterung):
+STATIC_TEMPLATES = [
+    ...
+    "xyz",
+]
 ```
 
-Letztes `print` von `len(CONFIGS) + N` auf `+ N+1` anpassen.
+Kein weiterer Aufwand — die Schleife übernimmt Laden, Rendern und Ausgabe automatisch.
 
 ---
 
