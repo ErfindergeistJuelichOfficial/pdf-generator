@@ -49,14 +49,19 @@
   }
 
   .toc-row a {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    width: 100%;
     color: #111;
     text-decoration: none;
   }
 
   .toc-row a::after {
     content: target-counter(attr(href url), page);
-    float: right;
     color: #555;
+    margin-left: 5mm;
+    flex-shrink: 0;
   }
 
   /* ── Abschnitte ── */
