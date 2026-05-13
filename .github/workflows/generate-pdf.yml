@@ -1,4 +1,4 @@
-name: Termine PDF generieren
+name: PDF generieren
 
 on:
   schedule:
