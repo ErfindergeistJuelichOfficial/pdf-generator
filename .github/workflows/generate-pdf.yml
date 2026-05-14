@@ -66,6 +66,7 @@ jobs:
           username: ${{ secrets.FTP_USERNAME_SHARE }}
           password: ${{ secrets.FTP_PASSWORD_SHARE }}
           local-dir: ./output/
+          server-dir: /downloads/
           protocol: ftps
           state-name: .ftp-deploy-pdf-termine-state.json
           exclude: |
