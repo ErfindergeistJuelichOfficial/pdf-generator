@@ -9,8 +9,16 @@ Events are fetched live from [erfindergeist.org](https://erfindergeist.org).
 
 ## Generate PDFs
 
+build once
+
 ```bash
-podman compose up --build
+podman compose build --no-cache
+```
+
+generate pdf:
+
+```bash
+podman compose up --build --force-recreate
 ```
 
 The finished PDFs will be placed in the `output/` folder:
@@ -26,6 +34,7 @@ The finished PDFs will be placed in the `output/` folder:
 | `datenschutz.pdf` | A4 Portrait | Repair Café privacy notice |
 | `vereinssatzung.pdf` | A4 Portrait | Vereinssatzung Erfindergeist Jülich e.V. |
 | `einweisung_werkstatt.pdf` | A4 Portrait | Einweisungsbestätigung &amp; Haftungsausschluss Offene Werkstatt |
+| `verhaltensregeln.pdf` | A4 Portrait | Verhaltensregeln Offene Werkstatt |
 
 ## Configuration
 

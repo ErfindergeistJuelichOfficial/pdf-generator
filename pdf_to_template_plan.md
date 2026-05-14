@@ -5,6 +5,10 @@ damit es automatisch bei `podman compose up` und im CI-Release mitgeneriert wird
 
 ---
 
+> **Wichtig:** Bei der Umsetzung eines PDFs als HTML-Template dürfen **Inhalt, Text und Wortlaut** der umzuwandelnden Dokumente vorerst **nicht verändert** werden. Das Template muss das Original 1:1 wiedergeben.
+
+---
+
 ## Checkliste
 
 1. **PDF lesen** — Claude Code kann `.pdf`-Dateien direkt lesen und visualisieren

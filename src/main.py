@@ -56,6 +56,7 @@ STATIC_TEMPLATES = [
     "datenschutz",
     "vereinssatzung",
     "einweisung_werkstatt",
+    "verhaltensregeln",
 ]
 
 for name in STATIC_TEMPLATES:
