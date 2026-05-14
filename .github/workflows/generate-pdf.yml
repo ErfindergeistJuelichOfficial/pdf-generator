@@ -14,7 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v6
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6.2.0
         with:
           python-version: "3.12"
 
@@ -36,7 +36,7 @@ jobs:
           TERMINE_JSON_URL: https://erfindergeist.org/wp-json/erfindergeist/v2/events
 
       - name: GitHub Release erstellen und PDFs veröffentlichen
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           tag_name: ${{ env.RELEASE_TAG }}
           name: ${{ env.RELEASE_TITLE }}
