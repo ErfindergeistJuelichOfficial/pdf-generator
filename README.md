@@ -31,7 +31,7 @@ The finished PDFs will be placed in the `output/` folder:
 | `Angebote/Repaircafe/termine_repaircafe_quer.pdf` | A4 Landscape | Repair Café — all events |
 | `Angebote/Repaircafe/repaircafe_haftungsbegrenzung.pdf` | A4 Landscape | Repair Café liability waiver (2× A5) |
 | `Angebote/Repaircafe/repaircafe_laufzettel.pdf` | A4 Landscape | Repair Café repair tracking form (2× A5) |
-| `Compliance/datenschutz.pdf` | A4 Portrait | Repair Café privacy notice |
+| `Verein/Compliance/datenschutz.pdf` | A4 Portrait | Repair Café privacy notice |
 | `Verein/vereinssatzung.pdf` | A4 Portrait | Vereinssatzung Erfindergeist Jülich e.V. |
 | `Angebote/Werkstatt/einweisung_werkstatt.pdf` | A4 Portrait | Einweisungsbestätigung &amp; Haftungsausschluss Offene Werkstatt |
 | `Angebote/Werkstatt/verhaltensregeln.pdf` | A4 Portrait | Verhaltensregeln Offene Werkstatt |

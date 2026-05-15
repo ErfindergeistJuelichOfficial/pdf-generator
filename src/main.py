@@ -12,14 +12,14 @@ from fetch import fetch  # noqa: E402 — after load_dotenv
 SRC_DIR = pathlib.Path(__file__).parent
 OUTPUT_DIR = pathlib.Path(__file__).parent.parent / "output"
 OUTPUT_DIR.mkdir(exist_ok=True)
-OUTPUT_COMPLIANCE = OUTPUT_DIR / "Compliance"
-OUTPUT_COMPLIANCE.mkdir(exist_ok=True)
 OUTPUT_WERKSTATT = OUTPUT_DIR / "Angebote" / "Werkstatt"
 OUTPUT_WERKSTATT.mkdir(parents=True, exist_ok=True)
 OUTPUT_REPAIRCAFE = OUTPUT_DIR / "Angebote" / "Repaircafe"
 OUTPUT_REPAIRCAFE.mkdir(parents=True, exist_ok=True)
 OUTPUT_VEREIN = OUTPUT_DIR / "Verein"
 OUTPUT_VEREIN.mkdir(exist_ok=True)
+OUTPUT_COMPLIANCE = OUTPUT_VEREIN / "Compliance"
+OUTPUT_COMPLIANCE.mkdir(exist_ok=True)
 
 env = Environment(loader=FileSystemLoader(str(SRC_DIR / "templates")))
 template_termine = env.get_template("termine.html")
