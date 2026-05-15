@@ -48,17 +48,19 @@ jobs:
 
             | Datei | Format | Inhalt |
             |---|---|---|
-            | `terminuebersicht_hoch.pdf` | A4 Hochformat | nächste 7 Termine |
-            | `terminuebersicht_quer.pdf` | A4 Querformat | nächste 5 Termine |
-            | `termine_repaircafe_hoch.pdf` | A4 Hochformat | Repair Café — alle Termine |
-            | `termine_repaircafe_quer.pdf` | A4 Querformat | Repair Café — alle Termine |
-            | `repaircafe_haftungsbegrenzung.pdf` | A4 Querformat | Haftungsbegrenzung Repair Café (2× A5) |
-            | `repaircafe_laufzettel.pdf` | A4 Querformat | Laufzettel Repair Café (2× A5) |
-            | `datenschutz.pdf` | A4 Hochformat | Datenschutzhinweis Repair Café |
-            | `vereinssatzung.pdf` | A4 Hochformat | Vereinssatzung Erfindergeist Jülich e.V. |
-            | `einweisung_werkstatt.pdf` | A4 Hochformat | Einweisungsbestätigung &amp; Haftungsausschluss Offene Werkstatt |
-            | `verhaltensregeln.pdf` | A4 Hochformat | Verhaltensregeln Offene Werkstatt |
-          files: output/*.pdf
+            | `Verein/terminuebersicht_hoch.pdf` | A4 Hochformat | nächste 7 Termine |
+            | `Verein/terminuebersicht_quer.pdf` | A4 Querformat | nächste 5 Termine |
+            | `Angebote/Repaircafe/termine_repaircafe_hoch.pdf` | A4 Hochformat | Repair Café — alle Termine |
+            | `Angebote/Repaircafe/termine_repaircafe_quer.pdf` | A4 Querformat | Repair Café — alle Termine |
+            | `Angebote/Repaircafe/repaircafe_haftungsbegrenzung.pdf` | A4 Querformat | Haftungsbegrenzung Repair Café (2× A5) |
+            | `Angebote/Repaircafe/repaircafe_laufzettel.pdf` | A4 Querformat | Laufzettel Repair Café (2× A5) |
+            | `Compliance/datenschutz.pdf` | A4 Hochformat | Datenschutzhinweis Repair Café |
+            | `Verein/vereinssatzung.pdf` | A4 Hochformat | Vereinssatzung Erfindergeist Jülich e.V. |
+            | `Angebote/Werkstatt/einweisung_werkstatt.pdf` | A4 Hochformat | Einweisungsbestätigung &amp; Haftungsausschluss Offene Werkstatt |
+            | `Angebote/Werkstatt/verhaltensregeln.pdf` | A4 Hochformat | Verhaltensregeln Offene Werkstatt |
+          files: |
+            output/*.pdf
+            output/**/*.pdf
 
       - name: PDF to share.erfindergeist.org
         uses: SamKirkland/FTP-Deploy-Action@v4.4.0

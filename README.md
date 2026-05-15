@@ -25,16 +25,16 @@ The finished PDFs will be placed in the `output/` folder:
 
 | File | Format | Content |
 | --- | --- | --- |
-| `terminuebersicht_hoch.pdf` | A4 Portrait | next 7 events |
-| `terminuebersicht_quer.pdf` | A4 Landscape | next 5 events |
-| `termine_repaircafe_hoch.pdf` | A4 Portrait | Repair Café — all events |
-| `termine_repaircafe_quer.pdf` | A4 Landscape | Repair Café — all events |
-| `repaircafe_haftungsbegrenzung.pdf` | A4 Landscape | Repair Café liability waiver (2× A5) |
-| `repaircafe_laufzettel.pdf` | A4 Landscape | Repair Café repair tracking form (2× A5) |
-| `datenschutz.pdf` | A4 Portrait | Repair Café privacy notice |
-| `vereinssatzung.pdf` | A4 Portrait | Vereinssatzung Erfindergeist Jülich e.V. |
-| `einweisung_werkstatt.pdf` | A4 Portrait | Einweisungsbestätigung &amp; Haftungsausschluss Offene Werkstatt |
-| `verhaltensregeln.pdf` | A4 Portrait | Verhaltensregeln Offene Werkstatt |
+| `Verein/terminuebersicht_hoch.pdf` | A4 Portrait | next 7 events |
+| `Verein/terminuebersicht_quer.pdf` | A4 Landscape | next 5 events |
+| `Angebote/Repaircafe/termine_repaircafe_hoch.pdf` | A4 Portrait | Repair Café — all events |
+| `Angebote/Repaircafe/termine_repaircafe_quer.pdf` | A4 Landscape | Repair Café — all events |
+| `Angebote/Repaircafe/repaircafe_haftungsbegrenzung.pdf` | A4 Landscape | Repair Café liability waiver (2× A5) |
+| `Angebote/Repaircafe/repaircafe_laufzettel.pdf` | A4 Landscape | Repair Café repair tracking form (2× A5) |
+| `Compliance/datenschutz.pdf` | A4 Portrait | Repair Café privacy notice |
+| `Verein/vereinssatzung.pdf` | A4 Portrait | Vereinssatzung Erfindergeist Jülich e.V. |
+| `Angebote/Werkstatt/einweisung_werkstatt.pdf` | A4 Portrait | Einweisungsbestätigung &amp; Haftungsausschluss Offene Werkstatt |
+| `Angebote/Werkstatt/verhaltensregeln.pdf` | A4 Portrait | Verhaltensregeln Offene Werkstatt |
 
 ## Configuration
 
