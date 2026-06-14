@@ -44,7 +44,7 @@ def _chunk(lst, size):
 
 def _render(tmpl, chunks, orientation):
     html_str = tmpl.render(chunks=chunks, orientation=orientation, erstellt=heute)
-    return HTML(string=html_str).render()
+    return HTML(string=html_str, base_url=str(SRC_DIR / "templates")).render()
 
 
 for filename, tmpl, orientation, events, per_page, alle, out_dir in CONFIGS:
@@ -69,7 +69,7 @@ STATIC_TEMPLATES = [
 
 for name, out_dir in STATIC_TEMPLATES:
     tmpl = env.get_template(f"{name}.html")
-    doc = HTML(string=tmpl.render(erstellt=heute)).render()
+    doc = HTML(string=tmpl.render(erstellt=heute), base_url=str(SRC_DIR / "templates")).render()
     doc.write_pdf(str(out_dir / f"{name}.pdf"))
     pages = len(doc.pages)
     print(f"  {out_dir.name}/{name}.pdf (statisch, {pages} Seite{'n' if pages > 1 else ''})")

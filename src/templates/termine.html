@@ -1,255 +1,262 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
-<head>
-<meta charset="utf-8">
-<style>
-  @font-face {
-    font-family: 'Caveat';
-    src: url('https://share.erfindergeist.org/fonts/Caveat-Regular.ttf');
-    font-weight: normal;
-    font-style: normal;
-  }
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      @font-face {
+        font-family: 'Caveat';
+        src: url('https://share.erfindergeist.org/fonts/Caveat-Regular.ttf');
+        font-weight: normal;
+        font-style: normal;
+      }
 
-  @font-face {
-    font-family: 'Caveat';
-    src: url('https://share.erfindergeist.org/fonts/Caveat-Bold.ttf');
-    font-weight: bold;
-    font-style: normal;
-  }
+      @font-face {
+        font-family: 'Caveat';
+        src: url('https://share.erfindergeist.org/fonts/Caveat-Bold.ttf');
+        font-weight: bold;
+        font-style: normal;
+      }
 
-  @page {
-    size: A4 {{ orientation }};
-    margin: 0;
-  }
+      @page {
+        size: A4 {{ orientation }};
+        margin: 0;
+      }
 
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
-  body {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 10pt;
-    color: #222;
-  }
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 10pt;
+        color: #222;
+      }
 
-  /* ── Main content area ── */
-  .content {
-    padding: 10mm 12mm 55mm;
-  }
+      /* ── Main content area ── */
+      .content {
+        padding: 10mm 12mm 55mm;
+      }
 
-  /* ── Header ── */
-  .header {
-    display: flex;
-    align-items: center;
-    gap: 6mm;
-    padding-bottom: 4mm;
-  }
+      /* ── Header ── */
+      .header {
+        display: flex;
+        align-items: center;
+        gap: 6mm;
+        padding-bottom: 4mm;
+      }
 
-  .logo {
-    height: 22mm;
-    width: auto;
-  }
+      .logo {
+        height: 22mm;
+        width: auto;
+      }
 
-  .header-text {
-    flex: 1;
-  }
+      .header-text {
+        flex: 1;
+      }
 
-  .title {
-    font-family: 'Caveat', cursive;
-    font-size: 58pt;
-    color: #159989;
-    line-height: 22mm;
-  }
+      .title {
+        font-family: 'Caveat', cursive;
+        font-size: 58pt;
+        color: #159989;
+        line-height: 22mm;
+      }
 
 
-  /* ── Gold divider ── */
-  .divider {
-    height: 1.5px;
-    background: #F9B338;
-    margin: 0 -12mm 5mm;
-  }
+      /* ── Gold divider ── */
+      .divider {
+        height: 1.5px;
+        background: #F9B338;
+        margin: 0 -12mm 5mm;
+      }
 
-  /* ── Table ── */
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 9.5pt;
-  }
+      /* ── Table ── */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 9.5pt;
+      }
 
-  tbody tr:nth-child(even) {
-    background: rgba(21, 153, 137, 0.07);
-  }
+      tbody tr:nth-child(even) {
+        background: rgba(21, 153, 137, 0.07);
+      }
 
-  tbody td {
-    padding: 2.2mm 2mm;
-    vertical-align: baseline;
-    line-height: 1.35;
-  }
+      tbody td {
+        padding: 2.2mm 2mm;
+        vertical-align: baseline;
+        line-height: 1.35;
+      }
 
-  td.datum-zeit {
-    white-space: nowrap;
-    width: 28mm;
-    vertical-align: baseline;
-  }
+      td.datum-zeit {
+        white-space: nowrap;
+        width: 28mm;
+        vertical-align: baseline;
+      }
 
-  .datum {
-    font-weight: 600;
-    color: #333;
-  }
+      .datum {
+        font-weight: 600;
+        color: #333;
+      }
 
-  .zeit {
-    color: #666;
-    font-size: 9pt;
-    margin-top: 0.8mm;
-  }
+      .zeit {
+        color: #666;
+        font-size: 9pt;
+        margin-top: 0.8mm;
+      }
 
-  td.titel {
-    font-weight: 600;
-    font-size: 11pt;
-    color: #111;
-  }
+      td.titel {
+        font-weight: 600;
+        font-size: 11pt;
+        color: #111;
+      }
 
-  .titel-text {
-    font-family: 'Caveat', cursive;
-    font-weight: bold;
-    font-size: 14pt;
-  }
+      .titel-text {
+        font-family: 'Caveat', cursive;
+        font-weight: bold;
+        font-size: 14pt;
+      }
 
-  .beschreibung {
-    color: #555;
-    font-size: 9pt;
-    font-style: italic;
-    margin-top: 1mm;
-    font-weight: normal;
-  }
+      .beschreibung {
+        color: #555;
+        font-size: 9pt;
+        font-style: italic;
+        margin-top: 1mm;
+        font-weight: normal;
+      }
 
-  td.ort {
-    color: #444;
-    width: 36mm;
-  }
+      td.ort {
+        color: #444;
+        width: 36mm;
+      }
 
-  /* ── Info block ── */
-  .info-block {
-    margin: 0 12mm 4mm;
-    /* border-left: 3px solid #159989; */
-    padding: 3mm 4mm;
-    background: #f7fdfc;
-    display: flex;
-    align-items: center;
-    gap: 4mm;
-  }
+      /* ── Info block ── */
+      .info-block {
+        margin: 0 12mm 4mm;
+        /* border-left: 3px solid #159989; */
+        padding: 3mm 4mm;
+        background: #f7fdfc;
+        display: flex;
+        align-items: center;
+        gap: 4mm;
+      }
 
-  .info-body {
-    flex: 1;
-  }
+      .info-body {
+        flex: 1;
+      }
 
-  .info-title {
-    font-family: 'Caveat', cursive;
-    font-size: 14pt;
-    color: #159989;
-    margin-bottom: 1.5mm;
-  }
+      .info-title {
+        font-family: 'Caveat', cursive;
+        font-size: 14pt;
+        color: #159989;
+        margin-bottom: 1.5mm;
+      }
 
-  .info-text {
-    font-size: 9pt;
-    color: #444;
-    line-height: 1.5;
-  }
+      .info-text {
+        font-size: 9pt;
+        color: #444;
+        line-height: 1.5;
+      }
 
-  .info-qr {
-    height: 26mm;
-    width: auto;
-    flex-shrink: 0;
-  }
+      .info-qr {
+        height: 26mm;
+        width: auto;
+        flex-shrink: 0;
+      }
 
-  /* ── Bottom section — fixed am unteren Seitenrand ── */
-  .bottom {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-  }
+      /* ── Bottom section — fixed am unteren Seitenrand ── */
+      .bottom {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+      }
 
-  .footer {
-    background: rgba(21, 153, 137, 0.06);
-    border-top: 1.5px solid #159989;
-    padding: 4mm 12mm 20mm;
-    display: flex;
-    align-items: center;
-  }
+      .footer {
+        background: rgba(21, 153, 137, 0.06);
+        border-top: 1.5px solid #159989;
+        padding: 4mm 12mm 20mm;
+        display: flex;
+        align-items: center;
+      }
 
-  .footer-text {
-    flex: 1;
-    display: flex;
-    justify-content: space-between;
-    color: #333;
-    font-size: 10pt;
-  }
-
-</style>
-</head>
-<body>
-
-  <div class="content">
-
-    <div class="header">
-      <div class="header-text">
-        <div class="title">Termine</div>
+      .footer-text {
+        flex: 1;
+        display: flex;
+        justify-content: space-between;
+        color: #333;
+        font-size: 10pt;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="content">
+      <div class="header">
+        <div class="header-text">
+          <div class="title">Termine</div>
+        </div>
+        <img
+          class="logo"
+          src="https://share.erfindergeist.org/img/logo_with_typeface_wide.svg"
+          alt="Erfindergeist Logo"
+        />
       </div>
-      <img class="logo" src="https://share.erfindergeist.org/img/logo_with_typeface_wide.svg" alt="Erfindergeist Logo">
+
+      <div class="divider"></div>
+
+      {% for chunk in chunks %} {% if not loop.first %}
+      <div style="page-break-before: always"></div>
+      {% endif %}
+      <table>
+        <tbody>
+          {% for t in chunk %}
+          <tr>
+            <td class="datum-zeit">
+              <div class="datum">{{ t.datum }}</div>
+              <div class="zeit">{{ t.zeit }}</div>
+            </td>
+            <td class="titel">
+              <span class="titel-text">{{ t.titel }}</span>
+              {% if t.beschreibung %}
+              <div class="beschreibung">{{ t.beschreibung }}</div>
+              {% endif %}
+            </td>
+            <td class="ort">{{ t.ort }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% endfor %}
     </div>
 
-    <div class="divider"></div>
+    <div class="bottom">
+      <div class="info-block">
+        <div class="info-body">
+          <div class="info-title">Wer sind wir?</div>
+          <div class="info-text">
+            Wir sind eine offene Werkstatt in Jülich — ein Ort zum Tüfteln,
+            Bauen, Reparieren und Voneinander-Lernen. Einfach vorbeikommen,
+            mitmachen, Werkzeug nutzen.<br />
+            Du findest uns im Gebäude der AWO Stadt Jülich e. V.,
+            Marie-Juchacz-Weg 2, 52428 Jülich.<br />
+            Alle Termine &amp; mehr Infos auf
+            <strong>erfindergeist.org</strong> — Änderungen vorbehalten.
+          </div>
+        </div>
+        <img
+          class="info-qr"
+          src="https://share.erfindergeist.org/qr/qr_link_to_linktree_H30_stl.svg"
+          alt="QR-Code Linktree"
+        />
+      </div>
 
-    {% for chunk in chunks %}
-    {% if not loop.first %}<div style="page-break-before: always;"></div>{% endif %}
-    <table>
-      <tbody>
-        {% for t in chunk %}
-        <tr>
-          <td class="datum-zeit">
-            <div class="datum">{{ t.datum }}</div>
-            <div class="zeit">{{ t.zeit }}</div>
-          </td>
-          <td class="titel">
-            <span class="titel-text">{{ t.titel }}</span>
-            {% if t.beschreibung %}
-            <div class="beschreibung">{{ t.beschreibung }}</div>
-            {% endif %}
-          </td>
-          <td class="ort">{{ t.ort }}</td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
-    {% endfor %}
-
-  </div>
-
-  <div class="bottom">
-    <div class="info-block">
-      <div class="info-body">
-        <div class="info-title">Wer sind wir?</div>
-        <div class="info-text">
-          Wir sind eine offene Werkstatt in Jülich — ein Ort zum Tüfteln, Bauen, Reparieren
-          und Voneinander-Lernen. Einfach vorbeikommen, mitmachen, Werkzeug nutzen.<br>
-          Du findest uns im Gebäude der AWO Stadt Jülich e. V., Marie-Juchacz-Weg 2, 52428 Jülich.<br>
-          Alle Termine &amp; mehr Infos auf <strong>erfindergeist.org</strong> — Änderungen vorbehalten.
+      <div class="footer">
+        <div class="footer-text">
+          <span>kontakt@erfindergeist.org</span>
+          <span>erfindergeist.org</span>
+          <span>Stand: {{ erstellt }}</span>
         </div>
       </div>
-      <img class="info-qr" src="https://share.erfindergeist.org/qr/qr_link_to_linktree_H30_stl.svg" alt="QR-Code Linktree">
     </div>
-
-    <div class="footer">
-      <div class="footer-text">
-        <span>kontakt@erfindergeist.org</span>
-        <span>erfindergeist.org</span>
-        <span>Stand: {{ erstellt }}</span>
-      </div>
-    </div>
-  </div>
-
-</body>
+  </body>
 </html>
