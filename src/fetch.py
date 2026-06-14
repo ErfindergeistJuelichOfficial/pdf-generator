@@ -10,8 +10,8 @@ def _load_tags() -> tuple[dict, dict]:
     response = requests.get(TAGS_JSON_URL, timeout=15)
     response.raise_for_status()
     data = response.json()
-    location_tags = {tag: v["location"] for tag, v in data.get("location_tags", {}).items()}
-    description_tags = {tag: v["description"] for tag, v in data.get("description_tags", {}).items()}
+    location_tags = {f"#{tag}": v["location"] for tag, v in data.get("location_tags", {}).items()}
+    description_tags = {f"#{tag}": v["description"] for tag, v in data.get("description_tags", {}).items()}
     return location_tags, description_tags
 
 

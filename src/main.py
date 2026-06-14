@@ -1,4 +1,5 @@
 import pathlib
+import shutil
 from datetime import datetime
 
 from dotenv import load_dotenv
@@ -12,6 +13,8 @@ from fetch import fetch  # noqa: E402 — after load_dotenv
 SRC_DIR = pathlib.Path(__file__).parent
 OUTPUT_DIR = pathlib.Path(__file__).parent.parent / "output"
 OUTPUT_DIR.mkdir(exist_ok=True)
+for _item in OUTPUT_DIR.iterdir():
+    shutil.rmtree(_item) if _item.is_dir() else _item.unlink()
 OUTPUT_WERKSTATT = OUTPUT_DIR / "Angebote" / "Werkstatt"
 OUTPUT_WERKSTATT.mkdir(parents=True, exist_ok=True)
 OUTPUT_REPAIRCAFE = OUTPUT_DIR / "Angebote" / "Repaircafe"
