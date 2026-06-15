@@ -58,6 +58,7 @@ jobs:
             | `Verein/vereinssatzung.pdf` | A4 Hochformat | Vereinssatzung Erfindergeist Jülich e.V. |
             | `Angebote/Werkstatt/einweisung_werkstatt.pdf` | A4 Hochformat | Einweisungsbestätigung &amp; Haftungsausschluss Offene Werkstatt |
             | `Angebote/Werkstatt/verhaltensregeln.pdf` | A4 Hochformat | Verhaltensregeln Offene Werkstatt |
+            | `Verein/Taetigkeitsnachweise/taetigkeitsnachweis_{year}.pdf` | A4 Hochformat | Tätigkeitsnachweis je Geschäftsjahr (aus Vereinschronik) |
           files: |
             output/*.pdf
             output/**/*.pdf

@@ -3,7 +3,28 @@ import requests
 from datetime import datetime
 
 WEEKDAYS = ["Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"]
+MONTHS_DE = [
+    "Januar", "Februar", "März", "April", "Mai", "Juni",
+    "Juli", "August", "September", "Oktober", "November", "Dezember",
+]
 TAGS_JSON_URL = "https://share.erfindergeist.org/config/tags.json"
+CHRONICLE_JSON_URL = "https://share.erfindergeist.org/config/chronicle.json"
+LINKS_JSON_URL = "https://share.erfindergeist.org/config/links.json"
+
+def _load_links() -> dict[str, dict]:
+    response = requests.get(LINKS_JSON_URL, timeout=15)
+    response.raise_for_status()
+    data = response.json()
+    result = {}
+    for list_item in data.get("itemListElement", []):
+        # @id / url / title live inside a nested "item" object
+        inner = list_item.get("item", list_item)
+        uid = inner.get("@id", "")
+        url = inner.get("url", "")
+        title = inner.get("title", "")
+        if uid and url:
+            result[uid] = {"url": url, "titel": title}
+    return result
 
 
 def _load_tags() -> tuple[dict, dict]:
@@ -42,6 +63,39 @@ def _fmt_date(iso: str) -> str:
 def _fmt_time(iso: str) -> str:
     dt = datetime.fromisoformat(iso)
     return f"{dt.hour:02d}:{dt.minute:02d}"
+
+
+def fetch_chronicle() -> dict[int, list[dict]]:
+    links_map = _load_links()
+    response = requests.get(CHRONICLE_JSON_URL, timeout=15)
+    response.raise_for_status()
+    data = response.json()
+
+    by_year: dict[int, list[dict]] = {}
+    for item in data.get("itemListElement", []):
+        date_str = item.get("date", "")
+        if not date_str:
+            continue
+        dt = datetime.strptime(date_str, "%Y-%m-%d")
+        year = dt.year
+        wd = WEEKDAYS[dt.weekday()]
+        raw_link_ids = item.get("link_ids") or []
+        event = {
+            "titel": item.get("title", ""),
+            "datum": f"{wd}, {dt.day:02d}.{dt.month:02d}.{dt.year}",
+            "datum_iso": date_str,
+            "monat_num": dt.month,
+            "ort": item.get("location") or "",
+            "tags": item.get("tags") or [],
+            "beschreibung": item.get("description") or "",
+            "links": [links_map[lid] for lid in raw_link_ids if lid in links_map],
+        }
+        by_year.setdefault(year, []).append(event)
+
+    for year_events in by_year.values():
+        year_events.sort(key=lambda e: e["datum_iso"])
+
+    return dict(sorted(by_year.items()))
 
 
 def fetch() -> list[dict]:

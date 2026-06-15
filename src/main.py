@@ -8,7 +8,7 @@ from weasyprint import HTML
 
 load_dotenv()
 
-from fetch import fetch  # noqa: E402 — after load_dotenv
+from fetch import fetch, fetch_chronicle, MONTHS_DE  # noqa: E402 — after load_dotenv
 
 SRC_DIR = pathlib.Path(__file__).parent
 OUTPUT_DIR = pathlib.Path(__file__).parent.parent / "output"
@@ -23,10 +23,13 @@ OUTPUT_VEREIN = OUTPUT_DIR / "Verein"
 OUTPUT_VEREIN.mkdir(exist_ok=True)
 OUTPUT_COMPLIANCE = OUTPUT_VEREIN / "Compliance"
 OUTPUT_COMPLIANCE.mkdir(exist_ok=True)
+OUTPUT_TAETIGKEITSNACHWEISE = OUTPUT_VEREIN / "Taetigkeitsnachweise"
+OUTPUT_TAETIGKEITSNACHWEISE.mkdir(exist_ok=True)
 
 env = Environment(loader=FileSystemLoader(str(SRC_DIR / "templates")))
 template_termine = env.get_template("termine.html")
 template_rc = env.get_template("termine_repaircafe.html")
+template_taetigkeitsnachweis = env.get_template("taetigkeitsnachweis.html")
 
 heute = datetime.now().strftime("%d.%m.%Y")
 termine = fetch()
@@ -77,4 +80,25 @@ for name, out_dir in STATIC_TEMPLATES:
     pages = len(doc.pages)
     print(f"  {out_dir.name}/{name}.pdf (statisch, {pages} Seite{'n' if pages > 1 else ''})")
 
-print(f"\nFertig — {len(CONFIGS) + len(STATIC_TEMPLATES)} PDFs in {OUTPUT_DIR}")
+chronicle_by_year = fetch_chronicle()
+chronicle_count = 0
+for year, events in chronicle_by_year.items():
+    months = []
+    for month_num in range(1, 13):
+        month_events = [e for e in events if e["monat_num"] == month_num]
+        if month_events:
+            months.append((MONTHS_DE[month_num - 1], month_events))
+    html_str = template_taetigkeitsnachweis.render(
+        year=year,
+        months=months,
+        total=len(events),
+        erstellt=heute,
+    )
+    doc = HTML(string=html_str, base_url=str(SRC_DIR / "templates")).render()
+    filename = f"taetigkeitsnachweis_{year}.pdf"
+    doc.write_pdf(str(OUTPUT_TAETIGKEITSNACHWEISE / filename))
+    pages = len(doc.pages)
+    print(f"  Verein/Taetigkeitsnachweise/{filename} ({len(events)} Einträge, {pages} Seite{'n' if pages > 1 else ''})")
+    chronicle_count += 1
+
+print(f"\nFertig — {len(CONFIGS) + len(STATIC_TEMPLATES) + chronicle_count} PDFs in {OUTPUT_DIR}")

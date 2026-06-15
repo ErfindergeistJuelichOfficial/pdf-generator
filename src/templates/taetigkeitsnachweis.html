@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="paper.css" />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      @page {
+        size: A4 portrait;
+        margin: 18mm 20mm 22mm;
+        @bottom-left {
+          content: "Erfindergeist Jülich e.V. · Tätigkeitsnachweis " string(doc-year);
+          font-family: Arial, Helvetica, sans-serif;
+          font-size: 7.5pt;
+          color: #999;
+        }
+        @bottom-right {
+          content: "Seite " counter(page) " von " counter(pages);
+          font-family: Arial, Helvetica, sans-serif;
+          font-size: 7.5pt;
+          color: #999;
+        }
+      }
+
+      body {
+        padding: 0;
+        font-size: 9pt;
+        color: #111;
+      }
+
+      /* ── Document header ── */
+      .doc-header {
+        display: flex;
+        align-items: flex-start;
+        gap: 8mm;
+        padding-bottom: 4mm;
+        border-bottom: 2px solid #159989;
+        margin-bottom: 5mm;
+      }
+
+      .header-logo {
+        height: 18mm;
+        width: auto;
+        flex-shrink: 0;
+      }
+
+      .header-info {
+        flex: 1;
+        padding-top: 1mm;
+      }
+
+      .org-name {
+        font-size: 10.5pt;
+        font-weight: bold;
+        color: #111;
+        margin-bottom: 1.5mm;
+      }
+
+      .org-meta {
+        font-size: 8pt;
+        color: #666;
+        line-height: 1.6;
+      }
+
+      /* ── Title block ── */
+      .doc-title-block {
+        text-align: center;
+        margin-bottom: 7mm;
+        padding-bottom: 5mm;
+        border-bottom: 1px solid #ddd;
+      }
+
+      /* string() source for @bottom-left running header */
+      .doc-year-anchor {
+        string-set: doc-year content();
+        position: absolute;
+        visibility: hidden;
+      }
+
+      .doc-title {
+        font-size: 20pt;
+        font-weight: bold;
+        color: #111;
+        letter-spacing: -0.02em;
+        margin-bottom: 2mm;
+      }
+
+      .doc-subtitle {
+        font-size: 9pt;
+        color: #666;
+      }
+
+      /* ── Month section ── */
+      .month-section {
+        margin-bottom: 5mm;
+      }
+
+      .month-heading {
+        font-size: 10pt;
+        font-weight: bold;
+        color: #fff;
+        background: #159989;
+        padding: 1.5mm 3mm;
+        margin-bottom: 0;
+        break-after: avoid;
+      }
+
+      /* ── Events table ── */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 8.5pt;
+      }
+
+      thead th {
+        background: #f0faf9;
+        color: #555;
+        font-weight: bold;
+        font-size: 7.5pt;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        padding: 1.5mm 2.5mm;
+        border-bottom: 1px solid #bbb;
+        text-align: left;
+      }
+
+      tbody tr {
+        border-bottom: 1px solid #eee;
+        break-inside: avoid;
+      }
+
+      tbody tr:nth-child(even) {
+        background: #f9f9f9;
+      }
+
+      tbody td {
+        padding: 2mm 2.5mm;
+        vertical-align: top;
+        line-height: 1.4;
+      }
+
+      .col-date {
+        width: 30mm;
+        white-space: nowrap;
+        font-weight: 600;
+        color: #222;
+      }
+
+      .col-event {
+        /* flexible */
+      }
+
+      .event-title {
+        font-weight: 600;
+        color: #111;
+      }
+
+      .event-desc {
+        color: #666;
+        font-size: 8pt;
+        font-style: italic;
+        margin-top: 0.5mm;
+      }
+
+      .event-links {
+        margin-top: 1mm;
+        font-size: 7.5pt;
+        font-style: normal;
+      }
+
+      .event-link {
+        color: #0c6b61;
+        text-decoration: underline;
+      }
+
+      .event-link-sep {
+        color: #aaa;
+        margin: 0 1mm;
+      }
+
+      .col-location {
+        width: 38mm;
+        color: #444;
+      }
+
+      .col-tags {
+        width: 30mm;
+      }
+
+      .tag {
+        display: inline-block;
+        background: rgba(21, 153, 137, 0.12);
+        color: #0c6b61;
+        border-radius: 2px;
+        padding: 0.2mm 1.5mm;
+        font-size: 7pt;
+        margin: 0.5mm 0.5mm 0 0;
+        white-space: nowrap;
+      }
+
+      /* ── Summary ── */
+      .summary-box {
+        margin-top: 7mm;
+        padding: 3mm 4mm;
+        background: #f0faf9;
+        border-left: 3px solid #159989;
+        font-size: 9.5pt;
+        color: #333;
+      }
+
+      .summary-box strong {
+        color: #159989;
+      }
+
+      /* ── Footer line ── */
+      .doc-footer {
+        margin-top: 6mm;
+        padding-top: 3mm;
+        border-top: 1px solid #ddd;
+        font-size: 7.5pt;
+        color: #999;
+        display: flex;
+        justify-content: space-between;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Title -->
+    <div class="doc-title-block">
+      <span class="doc-year-anchor">{{ year }}</span>
+      <div class="doc-title">Tätigkeitsnachweis {{ year }}</div>
+    </div>
+
+    <!-- Events grouped by month -->
+    {% for month_name, month_events in months %}
+    <div class="month-section">
+      <div class="month-heading">{{ month_name }} {{ year }}</div>
+      <table>
+        <thead>
+          <tr>
+            <th class="col-date">Datum</th>
+            <th class="col-event">Veranstaltung</th>
+            <th class="col-location">Ort</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for ev in month_events %}
+          <tr>
+            <td class="col-date">{{ ev.datum }}</td>
+            <td class="col-event">
+              <div class="event-title">{{ ev.titel }}</div>
+              {% if ev.beschreibung %}
+              <div class="event-desc">{{ ev.beschreibung }}</div>
+              {% endif %}
+              {% if ev.links %}
+              <div class="event-links">
+              <ul>
+                {% for link in ev.links %}
+                <li><a href="{{ link.url }}" class="event-link">{{ link.titel }} ({{ link.url }})</a></li>
+                {% endfor %}
+              </ul>
+              </div>
+              {% endif %}
+            </td>
+            <td class="col-location">{{ ev.ort }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% endfor %}
+
+    <!-- Summary -->
+    <div class="summary-box">
+      <strong>Gesamt {{ year }}:</strong> {{ total }} dokumentierte
+      Veranstaltung{{ 'en' if total != 1 else '' }}
+    </div>
+
+    <!-- Footer -->
+    <div class="doc-footer">
+      <span>Erstellt am {{ erstellt }}</span>
+    </div>
+  </body>
+</html>

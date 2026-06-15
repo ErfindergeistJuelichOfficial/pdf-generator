@@ -35,6 +35,7 @@ The finished PDFs will be placed in the `output/` folder:
 | `Verein/vereinssatzung.pdf` | A4 Portrait | Vereinssatzung Erfindergeist Jülich e.V. |
 | `Angebote/Werkstatt/einweisung_werkstatt.pdf` | A4 Portrait | Einweisungsbestätigung &amp; Haftungsausschluss Offene Werkstatt |
 | `Angebote/Werkstatt/verhaltensregeln.pdf` | A4 Portrait | Verhaltensregeln Offene Werkstatt |
+| `Verein/Taetigkeitsnachweise/taetigkeitsnachweis_{year}.pdf` | A4 Portrait | Tätigkeitsnachweis je Geschäftsjahr (aus Vereinschronik) |
 
 ## Configuration
 
