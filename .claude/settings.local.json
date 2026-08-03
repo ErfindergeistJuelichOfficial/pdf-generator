@@ -1,7 +1,6 @@
 {
   "permissions": {
     "allow": [
-      "Bash(podman compose *)",
       "WebFetch(domain:share.erfindergeist.org)"
     ]
   }
