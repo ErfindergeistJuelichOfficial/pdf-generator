@@ -68,6 +68,7 @@ STATIC_TEMPLATES = [
     ("repaircafe_haftungsbegrenzung", OUTPUT_REPAIRCAFE),
     ("repaircafe_laufzettel",         OUTPUT_REPAIRCAFE),
     ("datenschutz",                   OUTPUT_COMPLIANCE),
+    ("videoueberwachung",             OUTPUT_COMPLIANCE),
     ("vereinssatzung",                OUTPUT_VEREIN),
     ("einweisung_werkstatt",          OUTPUT_WERKSTATT),
     ("verhaltensregeln",              OUTPUT_WERKSTATT),
