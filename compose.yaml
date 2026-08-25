@@ -5,4 +5,4 @@ services:
       dockerfile: Containerfile
     env_file: .env
     volumes:
-      - ./output:/app/output
+      - ./output:/app/output:Z
